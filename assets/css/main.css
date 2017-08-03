@@ -420,7 +420,19 @@ nav {
     -ms-user-select: none;
     user-select: none; }
 
-.container.first-section {
+.container {
+  padding: 100px;
+  max-width: 1400px;
+  margin: 0 auto; }
+  .container.full-bleed {
+    padding: 100px 0;
+    max-width: none; }
+  .container .section-title {
+    font-size: 7.2em;
+    font-weight: 700;
+    color: #3cc4a4; }
+
+.first-section {
   position: relative;
   display: flex;
   justify-content: center;
@@ -428,7 +440,7 @@ nav {
   background: url(../images/hero.jpg) no-repeat;
   background-size: cover;
   height: 100vh; }
-  .container.first-section::before {
+  .first-section::before {
     content: "";
     position: absolute;
     z-index: 1;
@@ -441,7 +453,7 @@ nav {
     background-image: -webkit-linear-gradient(-405deg, #3cc4a4 20%, #3091f2 100%);
     background-image: linear-gradient(135deg, #3cc4a4 20%, #3091f2 100%);
     opacity: 0.9; }
-  .container.first-section .content {
+  .first-section .content {
     position: relative;
     z-index: 2;
     display: flex;
@@ -449,20 +461,39 @@ nav {
     justify-content: center;
     align-items: center;
     padding: 60px; }
-    .container.first-section .content .headshot {
+    .first-section .content .headshot {
       width: 200px;
       height: 200px;
       border-radius: 50%;
       margin-bottom: 20px;
       background: url(../images/headshot.jpg) no-repeat;
       background-size: cover; }
-    .container.first-section .content .name {
+    .first-section .content .name {
       font-size: 7.2em;
       font-weight: 700;
       margin-bottom: 20px;
       color: #fff; }
-    .container.first-section .content .desc {
-      font-size: 2.4em;
+    .first-section .content .desc {
+      font-size: 3.6em;
       color: #fff; }
+
+.projects .projects-container {
+  display: flex;
+  flex-flow: row wrap; }
+  .projects .projects-container .a-project {
+    display: flex;
+    flex-flow: column;
+    flex-basis: 33.3333333%;
+    padding: 40px;
+    background: #3cc4a4;
+    color: #fff; }
+    .projects .projects-container .a-project:nth-of-type(2) {
+      background: #39bb9c; }
+    .projects .projects-container .a-project .project-name {
+      font-size: 3.6em;
+      font-weight: 700; }
+    .projects .projects-container .a-project .project-desc {
+      font-size: 2em;
+      font-style: italic; }
 
 /*# sourceMappingURL=main.css.map */
