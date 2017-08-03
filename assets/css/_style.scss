@@ -1,0 +1,96 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+    color: $text-color;
+    font-size: 10px;
+    font-weight: 300;
+}
+
+nav {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 60px;
+    padding: 0px 60px;
+
+    .logo {
+        font-family: 'Fira Mono', monospace;
+        font-size: $fs-subtitle;
+        font-weight: 700;
+        color: $white;
+        cursor: pointer;
+        @include user-select(none);
+    }
+}
+
+.container {
+    .content {
+
+    }
+    &.first-section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: url(../images/hero.jpg) no-repeat;
+        background-size: cover;
+        height: 100vh;
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            width: 100%;
+            height: 100%;
+            @include background-image(linear-gradient(135deg, $secondary-color 20%, $primary-color 100%));
+            opacity: 0.9;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+
+            padding: 60px;
+
+            .headshot {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                margin-bottom: 20px;
+                background: url(../images/headshot.jpg) no-repeat;
+                background-size: cover;
+            }
+
+            .name {
+                font-size: $fs-large;
+                font-weight: 700;
+                margin-bottom: 20px;
+                color: $white;
+            }
+
+            .desc {
+                font-size: $fs-subtitle;
+                color: $white;
+            }
+        }
+    }
+}
