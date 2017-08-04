@@ -1,5 +1,6 @@
 *, *::before, *::after {
     box-sizing: border-box;
+    transition: all 0.3s ease-in-out
 }
 
 body {
@@ -7,6 +8,14 @@ body {
     color: $text-color;
     font-size: 10px;
     font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover, &:active, &:visited, &:focus {
+        text-decoration: none;
+    }
 }
 
 nav {
@@ -19,7 +28,7 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    height: 60px;
+    height: 100px;
     padding: 0px 60px;
 
     .logo {
@@ -46,6 +55,7 @@ nav {
         font-size: $fs-large;
         font-weight: 700;
         color: $color-1;
+        margin-bottom: 0.5em;
     }
 
     .content {
@@ -102,19 +112,25 @@ nav {
             font-weight: 700;
             margin-bottom: 20px;
             color: $white;
+            text-align: center;
         }
 
         .desc {
             font-size: $fs-h3;
             color: $white;
+            text-align: center;
         }
     }
 }
 
 .projects {
+    .section-title {
+        margin-left: 40px;
+    }
     .projects-container {
         display: flex;
         flex-flow: row wrap;
+        @include background-image(linear-gradient(135deg, $color-2 0%, $color-1 100%));
 
         .a-project {
             display: flex;
@@ -124,10 +140,17 @@ nav {
             padding: 40px;
             background: $color-1;
             color: $white;
+            cursor: pointer;
 
+            @for $i from 1 through 6 {
+                &:nth-of-type(#{$i + 1}) {
+                    background: darken($color-1, percentage($i * 0.015));
+                    // background: adjust-color($color-1, $lightness: percentage($i * -0.0167), $hue: $i * 5);
+                }
+            }
 
-            &:nth-of-type(2) {
-                background: darken($color-1, 2.5%);
+            &:hover {
+                background: none;
             }
 
             .project-name {
@@ -138,6 +161,22 @@ nav {
             .project-desc {
                 font-size: $fs-h5;
                 font-style: italic;
+            }
+        }
+    }
+
+    @media (max-width: $monitor-md) {
+        .projects-container {
+            .a-project {
+                flex-basis: 50%;
+            }
+        }
+    }
+
+    @media (max-width: $tablet-md) {
+        .projects-container {
+            .a-project {
+                flex-basis: 100%;
             }
         }
     }
