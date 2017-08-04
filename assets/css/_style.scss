@@ -3,6 +3,11 @@
     transition: all 0.3s ease-in-out
 }
 
+@include selection {
+    background: $color-1;
+    color: $white;
+}
+
 body {
     font-family: 'Fira Sans', sans-serif;
     color: $text-color;
@@ -42,10 +47,6 @@ nav {
 }
 
 .container {
-    padding: 100px;
-    max-width: 1400px;
-    margin: 0 auto;
-
     &.full-bleed {
         padding: 100px 0;
         max-width: none;
@@ -59,7 +60,9 @@ nav {
     }
 
     .content {
-
+        padding: 100px;
+        max-width: 1400px;
+        margin: 0 auto;
     }
 }
 
@@ -84,7 +87,7 @@ nav {
 
         width: 100%;
         height: 100%;
-        @include background-image(linear-gradient(135deg, $color-1 20%, $color-2 100%));
+        background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
         opacity: 0.9;
     }
 
@@ -130,7 +133,7 @@ nav {
     .projects-container {
         display: flex;
         flex-flow: row wrap;
-        @include background-image(linear-gradient(135deg, $color-2 0%, $color-1 100%));
+        background: linear-gradient(135deg, $color-2 0%, $color-1 100%);
 
         .a-project {
             display: flex;
@@ -180,4 +183,9 @@ nav {
             }
         }
     }
+}
+
+.resume {
+    background: $dark-blue;
+    color: $white;
 }
