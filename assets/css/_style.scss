@@ -1,6 +1,6 @@
 *, *::before, *::after {
     box-sizing: border-box;
-    transition: all 0.3s ease-in-out
+    transition: all 0.3s ease-in-out;
 }
 
 @include selection {
@@ -8,11 +8,12 @@
     color: $white;
 }
 
-body {
+
+html, body {
     font-family: 'Fira Sans', sans-serif;
     color: $text-color;
     font-size: 10px;
-    font-weight: 300;
+    font-weight: $light;
 }
 
 a {
@@ -21,6 +22,10 @@ a {
     &:hover, &:active, &:visited, &:focus {
         text-decoration: none;
     }
+}
+
+p {
+    // font-weight: $normal;
 }
 
 nav {
@@ -33,30 +38,37 @@ nav {
     justify-content: space-between;
     align-items: center;
 
+    font-size: $fs-body;
     height: 100px;
     padding: 0px 60px;
 
     .logo {
         font-family: 'Fira Mono', monospace;
         font-size: $fs-h4;
-        font-weight: 700;
+        font-weight: $bold;
         color: $white;
         cursor: pointer;
         @include user-select(none);
+
+        &::after {
+            content: "_";
+        }
+
+        &:hover {
+            &::after {
+                animation: blink 1s linear 0s normal infinite;
+            }
+        }
     }
 }
 
 .container {
+    font-size: $fs-body;
+    line-height: 1.5;
+
     &.full-bleed {
         padding: 100px 0;
         max-width: none;
-    }
-
-    .section-title {
-        font-size: $fs-large;
-        font-weight: 700;
-        color: $color-1;
-        margin-bottom: 0.5em;
     }
 
     .content {
@@ -64,6 +76,35 @@ nav {
         max-width: 1400px;
         margin: 0 auto;
     }
+
+    .section-title {
+        font-size: $fs-large;
+        font-weight: $bold;
+        color: $color-1;
+        margin-bottom: 0.5em;
+    }
+
+    .subsection-title {
+        font-size: $fs-h2;
+        font-weight: $bold;
+        color: $color-1;
+        margin-bottom: 40px;
+    }
+}
+
+.col-container {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -40px;
+    margin-bottom: -40px;
+}
+
+.col {
+    display: flex;
+    flex-flow: column;
+
+    margin-right: 40px;
+    margin-bottom: 40px;
 }
 
 .first-section {
@@ -112,7 +153,7 @@ nav {
 
         .name {
             font-size: $fs-large;
-            font-weight: 700;
+            font-weight: $bold;
             margin-bottom: 20px;
             color: $white;
             text-align: center;
@@ -158,7 +199,7 @@ nav {
 
             .project-name {
                 font-size: $fs-h3;
-                font-weight: 700;
+                font-weight: $bold;
             }
 
             .project-desc {
@@ -186,6 +227,37 @@ nav {
 }
 
 .resume {
+    display: flex;
+    flex-flow: row wrap;
+
     background: $dark-blue;
     color: $white;
+
+    .col {
+        flex-grow: 1;
+
+        &.large {
+            flex-grow: 2;
+            flex-basis: 600px;
+        }
+
+        &.small {
+
+        }
+    }
+
+    .experience {
+
+        .an-experience {
+            .experience-title {
+                font-size: $fs-h4;
+                font-weight: $bold;
+            }
+
+            .experience-position {
+                font-size: $fs-body;
+                font-style: italic;
+            }
+        }
+    }
 }
