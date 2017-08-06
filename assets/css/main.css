@@ -423,6 +423,11 @@ a {
   a:hover, a:active, a:visited, a:focus {
     text-decoration: none; }
 
+ul {
+  margin: 0; }
+  ul li {
+    margin: 0; }
+
 nav {
   position: fixed;
   z-index: 10;
@@ -452,7 +457,8 @@ nav {
 
 .container {
   font-size: 1.8rem;
-  line-height: 1.5; }
+  line-height: 1.5;
+  padding: 100px; }
   .container.full-bleed {
     padding: 100px 0;
     max-width: none; }
@@ -573,18 +579,54 @@ nav {
 .resume {
   display: flex;
   flex-flow: row wrap;
-  background: #596f80;
-  color: #fff; }
+  background: #3f4e5e; }
   .resume .col {
     flex-grow: 1; }
     .resume .col.large {
-      flex-grow: 2;
-      flex-basis: 600px; }
-  .resume .experience .an-experience .experience-title {
+      flex-grow: 1;
+      flex-basis: 50%; }
+    .resume .col.small {
+      flex-grow: 1;
+      flex-basis: 30%; }
+  .resume .subsection-title {
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
+    color: #fff;
+    margin-bottom: -20px; }
+  .resume .subsection-body {
+    background: #fff;
+    padding: 40px;
+    box-shadow: 8px 8px 0px #59807d; }
+  .resume .experience {
+    margin-bottom: 40px; }
+    .resume .experience .an-experience {
+      margin-bottom: 1em; }
+      .resume .experience .an-experience .experience-title {
+        font-size: 2.4rem;
+        font-weight: 700; }
+      .resume .experience .an-experience .experience-position {
+        font-size: 1.8rem;
+        font-style: italic; }
+  .resume .education {
+    margin-bottom: 40px; }
+    .resume .education .where {
+      font-size: 2.4rem;
+      font-weight: 700; }
+    .resume .education .when {
+      font-size: 2.4rem;
+      font-style: italic;
+      margin-bottom: 1em; }
+    .resume .education .relevant-courses {
+      font-size: 2.4rem;
+      font-weight: 700; }
+  .resume .skills .status {
     font-size: 2.4rem;
     font-weight: 700; }
-  .resume .experience .an-experience .experience-position {
-    font-size: 1.8rem;
-    font-style: italic; }
+  .resume .skills .subsection-body {
+    display: flex;
+    flex-flow: row wrap; }
+  .resume .skills .col.two {
+    flex-basis: 30%; }
 
 /*# sourceMappingURL=main.css.map */

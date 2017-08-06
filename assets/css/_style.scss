@@ -28,6 +28,14 @@ p {
     // font-weight: $normal;
 }
 
+ul {
+    margin: 0;
+
+    li {
+        margin: 0;
+    }
+}
+
 nav {
     position: fixed;
     z-index: 10;
@@ -65,6 +73,7 @@ nav {
 .container {
     font-size: $fs-body;
     line-height: 1.5;
+    padding: 100px;
 
     &.full-bleed {
         padding: 100px 0;
@@ -230,25 +239,62 @@ nav {
     display: flex;
     flex-flow: row wrap;
 
-    background: $dark-blue;
-    color: $white;
+    background: $dark-gray;
+    // color: $white;
+
+    .col-container {
+
+    }
 
     .col {
         flex-grow: 1;
 
         &.large {
-            flex-grow: 2;
-            flex-basis: 600px;
+            flex-grow: 1;
+            flex-basis: 50%;
         }
 
         &.small {
+            flex-grow: 1;
+            flex-basis: 30%;
+        }
+    }
+
+    .subsection {
+
+    }
+
+    .subsection-title {
+        position: relative;
+        z-index: 2;
+        align-self: flex-start;
+
+        color: $white;
+        margin-bottom: -20px;
+        // margin-left: -20px;
+        // background: $white;
+        // padding: 10px 20px;
+        // box-shadow: 8px 8px 0px $dark-green;
+    }
+
+    .subsection-body {
+        background: $white;
+        padding: 40px;
+        box-shadow: 8px 8px 0px $dark-green;
+    }
+
+    ul {
+        li {
 
         }
     }
 
     .experience {
+        margin-bottom: 40px;
 
         .an-experience {
+            margin-bottom: 1em;
+
             .experience-title {
                 font-size: $fs-h4;
                 font-weight: $bold;
@@ -257,6 +303,50 @@ nav {
             .experience-position {
                 font-size: $fs-body;
                 font-style: italic;
+            }
+        }
+    }
+
+    .volunteering {
+
+    }
+
+    .education {
+        margin-bottom: 40px;
+
+        .where {
+            font-size: $fs-h4;
+            font-weight: $bold;
+        }
+
+        .when {
+            font-size: $fs-h4;
+            font-style: italic;
+            margin-bottom: 1em;
+        }
+
+        .relevant-courses {
+            font-size: $fs-h4;
+            font-weight: $bold;
+        }
+    }
+
+    .skills {
+        // max-width: 30%;
+
+        .status {
+            font-size: $fs-h4;
+            font-weight: $bold;
+        }
+
+        .subsection-body {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .col {
+            &.two {
+                flex-basis: 30%;
             }
         }
     }
