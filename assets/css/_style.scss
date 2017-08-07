@@ -80,24 +80,41 @@ nav {
         max-width: none;
     }
 
+    &.scrolled {
+        .section-title {
+            -webkit-text-stroke: 8px transparent;
+            -webkit-text-fill-color: unset;
+            color: $white;
+        }
+    }
+
     .content {
-        padding: 100px;
         max-width: 1400px;
         margin: 0 auto;
     }
 
     .section-title {
-        font-size: $fs-large;
+        display: inline-block;
+        @include user-select(none);
+        cursor: default;
+
+        font-size: 200px;
         font-weight: $bold;
         color: $color-1;
-        margin-bottom: 0.5em;
+
+        background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        margin-bottom: 0;
     }
 
     .subsection-title {
         font-size: $fs-h2;
         font-weight: $bold;
         color: $color-1;
-        margin-bottom: 40px;
+        margin-bottom: 0.5em;
+        line-height: 1;
     }
 }
 
@@ -166,6 +183,7 @@ nav {
             margin-bottom: 20px;
             color: $white;
             text-align: center;
+            line-height: 1;
         }
 
         .desc {
@@ -176,9 +194,17 @@ nav {
     }
 }
 
+.about {
+    .text {
+        max-width: 50%;
+    }
+}
+
 .projects {
+    background: $text-color;
+
     .section-title {
-        margin-left: 40px;
+        // margin-left: 40px;
     }
     .projects-container {
         display: flex;
@@ -240,7 +266,12 @@ nav {
     flex-flow: row wrap;
 
     background: $dark-gray;
+    // background: $darker-green;
     // color: $white;
+
+    .section-title {
+        color: $white;
+    }
 
     .col-container {
 
@@ -261,26 +292,21 @@ nav {
     }
 
     .subsection {
-
+        background: $white;
+        padding: 40px;
+        box-shadow: 8px 8px 0px $dark-green;
     }
 
     .subsection-title {
         position: relative;
         z-index: 2;
-        align-self: flex-start;
+        display: inline-flex;
 
-        color: $white;
-        margin-bottom: -20px;
-        // margin-left: -20px;
-        // background: $white;
-        // padding: 10px 20px;
-        // box-shadow: 8px 8px 0px $dark-green;
+        color: $text-color;
     }
 
     .subsection-body {
-        background: $white;
-        padding: 40px;
-        box-shadow: 8px 8px 0px $dark-green;
+        position: relative;
     }
 
     ul {
@@ -294,6 +320,10 @@ nav {
 
         .an-experience {
             margin-bottom: 1em;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
 
             .experience-title {
                 font-size: $fs-h4;
