@@ -107,6 +107,8 @@ nav {
         -webkit-text-fill-color: transparent;
 
         margin-bottom: 0;
+        margin-left: -20px;
+        padding: 20px;
     }
 
     .subsection-title {
@@ -196,7 +198,13 @@ nav {
 
 .about {
     .text {
-        max-width: 50%;
+        max-width: 600px;
+
+        color: $white;
+        background: $darker-blue;
+        font-size: $fs-h4;
+        padding: 40px;
+        @extend %green-shadow;
     }
 }
 
@@ -294,7 +302,7 @@ nav {
     .subsection {
         background: $white;
         padding: 40px;
-        box-shadow: 8px 8px 0px $dark-green;
+        @extend %green-shadow;
     }
 
     .subsection-title {
