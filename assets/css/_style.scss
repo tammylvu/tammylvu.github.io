@@ -199,8 +199,30 @@ nav {
 }
 
 .about {
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    img {
+        flex-basis: 600px;
+        max-width: 60%;
+
+        height: auto;
+        @extend %green-shadow;
+
+        &.img-1 {
+
+        }
+
+        &.img-2 {
+            align-self: flex-end;
+        }
+    }
+
     .text {
         max-width: 600px;
+        align-self: center;
 
         color: $white;
         background: $darker-blue;
