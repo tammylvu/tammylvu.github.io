@@ -466,9 +466,10 @@ nav {
     padding: 100px 0;
     max-width: none; }
   .container.scrolled .section-title {
-    -webkit-text-stroke: 8px transparent;
-    -webkit-text-fill-color: unset;
-    color: #fff; }
+    color: #3f4e5e;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial; }
   .container .content {
     max-width: 1400px;
     margin: 0 auto; }

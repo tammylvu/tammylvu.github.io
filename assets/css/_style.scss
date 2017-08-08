@@ -82,9 +82,11 @@ nav {
 
     &.scrolled {
         .section-title {
-            -webkit-text-stroke: 8px transparent;
-            -webkit-text-fill-color: unset;
-            color: $white;
+            color: $text-color;
+            // opacity: 0.75;
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
         }
     }
 
