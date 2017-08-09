@@ -14,6 +14,7 @@ html, body {
     color: $text-color;
     font-size: 10px;
     font-weight: $light;
+    overflow-x: hidden;
 }
 
 a {
@@ -204,30 +205,54 @@ nav {
         flex-direction: column;
     }
 
-    img {
-        flex-basis: 600px;
-        max-width: 60%;
+    .row {
+        display: flex;
+        flex-flow: row;
 
+        &.row-1 {
+            align-items: flex-end;
+            margin-bottom: 100px;
+        }
+
+        &.row-2 {
+
+        }
+    }
+
+    img {
+        align-self: flex-start;
+        flex-basis: 600px;
+
+        max-width: 75%;
         height: auto;
         @extend %green-shadow;
 
         &.img-1 {
-
+            margin-left: -7.5%;
         }
 
         &.img-2 {
+            max-width: 75%;
             align-self: flex-end;
+            margin-top: 20%;
+            margin: 15% -15% 0 0;
+        }
+
+        &.img-3 {
+
         }
     }
 
     .text {
         max-width: 600px;
-        align-self: center;
+        // align-self: flex-end;
 
         color: $white;
         background: $darker-blue;
         font-size: $fs-h4;
         padding: 40px;
+        margin: 0 0 5% -10%;
+
         @extend %green-shadow;
     }
 }
