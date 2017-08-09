@@ -466,11 +466,8 @@ nav {
   .container.full-bleed {
     padding: 100px 0;
     max-width: none; }
-  .container.scrolled .section-title {
-    color: #3f4e5e;
-    background: none;
-    -webkit-background-clip: initial;
-    -webkit-text-fill-color: initial; }
+  .container.active {
+    background: red; }
   .container .content {
     max-width: 1400px;
     margin: 0 auto; }

@@ -13,22 +13,40 @@
 // 	}
 // });
 
+
+let logged = false;
+
 $(window).scroll(function() {
-	if ($(window).scrollTop() >= $(".about").position().top) {
-		$(".about").addClass("scrolled");
+	let windowT = $(window).scrollTop();
+	let aboutT = $(".about").position().top;
+	let projectsT = $(".projects").position().top;
+	let resumeT = $(".resume").position().top;
+
+	if (windowT >= aboutT) {
+		$(".about").addClass("active");
 	}
 
-	else if ($(window).scrollTop() >= $(".projects").position().top) {
-		$(".projects").addClass("scrolled");
+	else if (windowT >= projectsT) {
+		$(".projects").addClass("active");
 	}
 
-	else if ($(window).scrollTop() >= $(".resume").position().top) {
-		$(".resume").addClass("scrolled");
+	else if (windowT >= resumeT) {
+		$(".resume").addClass("active");
 	}
+	
 	else {
-		$(".container").removeClass("scrolled");
+		$(".container").removeClass("active");
 	}
 
-	console.log($(window).scrollTop());
-	console.log($(".projects").position().top);
+
+	if (!logged) {
+		console.log("aboutT is " + aboutT);
+		console.log("projectsT is " + projectsT);
+		console.log("resumeT is " + resumeT);
+
+		logged = true;
+	}
+
+	console.log("windowT is " + windowT);
+
 });
