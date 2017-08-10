@@ -58,7 +58,7 @@ $(window).scroll(function() {
 		$("nav.projects").addClass("projects");
 	}
 
-	else if (windowT >= resumeT && resumeH) {
+	else if (windowT >= resumeT && windowT < resumeH) {
 		$("nav").removeClass();
 		$(".container").removeClass("active");
 
@@ -66,7 +66,7 @@ $(window).scroll(function() {
 		$("nav.resume").addClass("resume");
 	}
 
-	else if (windowT >= contactT && contactH) {
+	else if (windowT >= contactT && windowT < contactH) {
 		$("nav").removeClass();
 		$(".container").removeClass("active");
 
