@@ -443,7 +443,6 @@ ul {
   opacity: 0;
   pointer-events: none; }
   .overlay.open {
-    background: rgba(255, 255, 255, 0.75);
     opacity: 1;
     pointer-events: auto; }
 
