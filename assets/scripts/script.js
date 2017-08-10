@@ -1,17 +1,9 @@
-// $(window).scroll(function() {
-// 	var hT = $(".about").offset().top,
-// 	hH = $(".about").outerHeight(),
-// 	wH = $(window).height(),
-// 	wS = $(this).scrollTop();
+$(document).ready(function () {
+	$(".current-section-container").click(function () {
+		$("nav, .overlay").toggleClass("open");
+	});
+});
 
-// 	if (wS > (hT+hH-wH)){
-// 		$(".about").addClass("scrolled");
-// 	}
-
-// 	else {
-// 		$(".about").removeClass("scrolled");
-// 	}
-// });
 
 
 let logged = false;
@@ -37,24 +29,23 @@ $(window).scroll(function() {
 
 	if (windowT >= aboutT && windowT < aboutH) {
 		$(".container").removeClass("active");
-		$(".about").addClass("active");
+		$(".container.about").addClass("active");
 	}
 
 	else if (windowT >= projectsT && windowT < projectsH) {
 		$(".container").removeClass("active");
-		$(".projects").addClass("active");
+		$(".container.projects").addClass("active");
 	}
 
 	else if (windowT >= resumeT && resumeH) {
 		$(".container").removeClass("active");
-		$(".resume").addClass("active");
+		$(".container.resume").addClass("active");
 	}
 
 	else {
 		$("nav").removeClass("scrolled");
 		$(".container").removeClass("active");
 	}
-
 
 	if (!logged) {
 		console.log("aboutT is " + aboutT);

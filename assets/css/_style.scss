@@ -37,7 +37,27 @@ ul {
     }
 }
 
+.overlay {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    &.open {
+        background: rgba(255, 255, 255, 0.75);
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
 nav {
+    $nav-height: 60px;
+
     position: fixed;
     z-index: 10;
     top: 20px;
@@ -46,37 +66,161 @@ nav {
     justify-content: space-between;
     align-items: center;
 
+    height: $nav-height;
+
     font-family: 'Fira Mono', monospace;
     font-size: $fs-h4;
     font-weight: $normal;
     color: $white;
-
-    height: 60px;
-    padding: 0 20px;
     cursor: pointer;
-
-    &.scrolled {
-        background: black;
-        height: auto;
-        padding: 20px;
-        @extend %blue-shadow;
-    }
+    @include user-select(none);
 
     &:hover {
         .logo {
             &::after {
-                animation: blink 1s linear 0s normal infinite;
+                // animation: blink 1s linear 0s normal infinite;
             }
         }
     }
 
-    .logo {
-        @include user-select(none);
+    &.scrolled {
 
-        &::after {
-            content: "_";
+    }
+
+    &.open {
+        .dropdown-container {
+            opacity: 1;
+            pointer-events: auto;
+            transform: none;
         }
     }
+
+    $sections: welcome, about, projects, resume, contact;
+
+    @each $section in $sections {
+        &.#{$section} .current-section-container .current-section.#{$section} {
+            opacity: 1;
+            pointer-events: auto;
+            position: relative;
+        }
+    }
+
+    // &.welcome {
+    //     .current-section-container {
+    //         .current-section {
+    //             &.welcome {
+    //                 opacity: 1;
+    //                 pointer-events: auto;
+    //                 position: relative;
+    //             }
+    //         }
+    //     }
+    // }
+
+    .logo-container, .current-section-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        background: black;
+        height: 100%;
+        padding: 0 20px;
+    }
+
+    .logo-container {
+        z-index: 1;
+        font-weight: $bold;
+
+        .logo {
+            @include user-select(none);
+
+            &::after {
+                content: "_";
+            }
+        }
+    }
+
+    .current-section-container {
+
+
+        .dropdown-arrow {
+            position: relative;
+
+            width: 12px;
+            height: 12px;
+            margin-bottom: 6px;
+            margin-left: 10px;
+
+            &::before, &::after {
+                content: "";
+                position: absolute;
+                transform: rotate(45deg);
+
+                height: 100%;
+                width: 100%;
+                border-right: 2px solid $white;
+                border-bottom: 2px solid $white;
+            }
+        }
+
+        .current-section {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+
+            &.welcome {
+
+            }
+
+            &.about {
+
+            }
+
+            &.projects {
+
+            }
+
+            &.resume {
+
+            }
+        }
+    }
+
+    .dropdown-container {
+        position: absolute;
+
+        background: black;
+        padding: 20px;
+        width: 100%;
+        top: $nav-height + 10px;
+
+        opacity: 0;
+        pointer-events: none;
+
+        transform: scale(0);
+        transform-origin: top center;
+
+        .dropdown-item {
+            padding: 10px 0;
+        }
+
+        .welcome {
+
+        }
+
+        .about {
+
+        }
+
+        .projects {
+
+        }
+
+        .resume {
+
+        }
+    }
+
 }
 
 .container {
