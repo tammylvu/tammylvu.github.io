@@ -31,7 +31,7 @@ $(window).scroll(function() {
 	let resumeT = $(".resume").position().top;
 	let resumeH = resumeT + $(".resume").outerHeight();
 
-	if (windowT >= firstH) {
+	if (windowT >= firstT) {
 		$("nav").addClass("scrolled");
 	}
 

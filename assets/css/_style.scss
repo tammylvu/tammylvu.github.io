@@ -40,40 +40,41 @@ ul {
 nav {
     position: fixed;
     z-index: 10;
-    top: 0;
-    left: 0;
-    // right: 0;
+    top: 20px;
+    left: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    font-size: $fs-body;
-    height: 100px;
-    padding: 0px 60px;
+    font-family: 'Fira Mono', monospace;
+    font-size: $fs-h4;
+    font-weight: $normal;
+    color: $white;
+
+    height: 60px;
+    padding: 0 20px;
+    cursor: pointer;
 
     &.scrolled {
-        background: $text-color;
-        height: 70px;
-        padding: 0 40px;
-        @extend %green-shadow;
+        background: black;
+        height: auto;
+        padding: 20px;
+        @extend %blue-shadow;
+    }
+
+    &:hover {
+        .logo {
+            &::after {
+                animation: blink 1s linear 0s normal infinite;
+            }
+        }
     }
 
     .logo {
-        font-family: 'Fira Mono', monospace;
-        font-size: $fs-h4;
-        font-weight: $bold;
-        color: $white;
-        cursor: pointer;
         @include user-select(none);
 
         &::after {
             content: "_";
-        }
-
-        &:hover {
-            &::after {
-                animation: blink 1s linear 0s normal infinite;
-            }
         }
     }
 }
@@ -90,14 +91,6 @@ nav {
 
     &.active {
         background: $dark-gray;
-
-        // .section-title {
-        //     color: $text-color;
-        //     // opacity: 0.75;
-        //     background: none;
-        //     -webkit-background-clip: initial;
-        //     -webkit-text-fill-color: initial;
-        // }
     }
 
     .content {
@@ -129,6 +122,14 @@ nav {
         color: $color-1;
         margin-bottom: 0.5em;
         line-height: 1;
+    }
+
+    @media (max-width: $tablet-md) {
+        padding: 50px;
+    }
+
+    @media (max-width: $phone-lg) {
+        padding: 50px;
     }
 }
 
@@ -267,7 +268,7 @@ nav {
 }
 
 .projects {
-    background: $text-color;
+    // background: $text-color;
 
     .section-title {
         // margin-left: 40px;

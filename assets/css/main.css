@@ -389,8 +389,11 @@ template {
 [hidden] {
   display: none; }
 
-nav.scrolled, .about img, .about .text, .resume .subsection {
+.about img, .about .text, .resume .subsection {
   box-shadow: 8px 8px 0px #59807d; }
+
+nav.scrolled {
+  box-shadow: 8px 8px 0px #596f80; }
 
 @keyframes blink {
   0% {
@@ -435,32 +438,31 @@ ul {
 nav {
   position: fixed;
   z-index: 10;
-  top: 0;
-  left: 0;
+  top: 20px;
+  left: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.8rem;
-  height: 100px;
-  padding: 0px 60px; }
+  font-family: 'Fira Mono', monospace;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #fff;
+  height: 60px;
+  padding: 0 20px;
+  cursor: pointer; }
   nav.scrolled {
-    background: #3f4e5e;
-    height: 70px;
-    padding: 0 40px; }
+    background: black;
+    height: auto;
+    padding: 20px; }
+  nav:hover .logo::after {
+    animation: blink 1s linear 0s normal infinite; }
   nav .logo {
-    font-family: 'Fira Mono', monospace;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: #fff;
-    cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
     nav .logo::after {
       content: "_"; }
-    nav .logo:hover::after {
-      animation: blink 1s linear 0s normal infinite; }
 
 .container {
   font-size: 1.8rem;
@@ -496,6 +498,12 @@ nav {
     color: #3cc4a4;
     margin-bottom: 0.5em;
     line-height: 1; }
+  @media (max-width: 768px) {
+    .container {
+      padding: 50px; } }
+  @media (max-width: 480px) {
+    .container {
+      padding: 50px; } }
 
 .col-container {
   display: flex;
@@ -585,46 +593,44 @@ nav {
   padding: 40px;
   margin: 0 0 5% -10%; }
 
-.projects {
-  background: #3f4e5e; }
-  .projects .projects-container {
+.projects .projects-container {
+  display: flex;
+  flex-flow: row wrap;
+  background: linear-gradient(135deg, #3091f2 0%, #3cc4a4 100%); }
+  .projects .projects-container .a-project {
     display: flex;
-    flex-flow: row wrap;
-    background: linear-gradient(135deg, #3091f2 0%, #3cc4a4 100%); }
-    .projects .projects-container .a-project {
-      display: flex;
-      flex-flow: column;
-      flex-basis: 33.3333333%;
-      padding: 40px;
-      background: #3cc4a4;
-      color: #fff;
-      cursor: pointer; }
-      .projects .projects-container .a-project:nth-of-type(2) {
-        background: #3abf9f; }
-      .projects .projects-container .a-project:nth-of-type(3) {
-        background: #38b99a; }
-      .projects .projects-container .a-project:nth-of-type(4) {
-        background: #36b396; }
-      .projects .projects-container .a-project:nth-of-type(5) {
-        background: #34ad91; }
-      .projects .projects-container .a-project:nth-of-type(6) {
-        background: #33a78c; }
-      .projects .projects-container .a-project:nth-of-type(7) {
-        background: #31a187; }
-      .projects .projects-container .a-project:hover {
-        background: none; }
-      .projects .projects-container .a-project .project-name {
-        font-size: 3.6rem;
-        font-weight: 700; }
-      .projects .projects-container .a-project .project-desc {
-        font-size: 2rem;
-        font-style: italic; }
-  @media (max-width: 1280px) {
-    .projects .projects-container .a-project {
-      flex-basis: 50%; } }
-  @media (max-width: 768px) {
-    .projects .projects-container .a-project {
-      flex-basis: 100%; } }
+    flex-flow: column;
+    flex-basis: 33.3333333%;
+    padding: 40px;
+    background: #3cc4a4;
+    color: #fff;
+    cursor: pointer; }
+    .projects .projects-container .a-project:nth-of-type(2) {
+      background: #3abf9f; }
+    .projects .projects-container .a-project:nth-of-type(3) {
+      background: #38b99a; }
+    .projects .projects-container .a-project:nth-of-type(4) {
+      background: #36b396; }
+    .projects .projects-container .a-project:nth-of-type(5) {
+      background: #34ad91; }
+    .projects .projects-container .a-project:nth-of-type(6) {
+      background: #33a78c; }
+    .projects .projects-container .a-project:nth-of-type(7) {
+      background: #31a187; }
+    .projects .projects-container .a-project:hover {
+      background: none; }
+    .projects .projects-container .a-project .project-name {
+      font-size: 3.6rem;
+      font-weight: 700; }
+    .projects .projects-container .a-project .project-desc {
+      font-size: 2rem;
+      font-style: italic; }
+@media (max-width: 1280px) {
+  .projects .projects-container .a-project {
+    flex-basis: 50%; } }
+@media (max-width: 768px) {
+  .projects .projects-container .a-project {
+    flex-basis: 100%; } }
 
 .resume {
   display: flex;
