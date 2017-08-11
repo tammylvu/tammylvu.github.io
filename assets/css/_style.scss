@@ -105,18 +105,6 @@ nav {
         }
     }
 
-    // &.welcome {
-    //     .current-section-container {
-    //         .current-section {
-    //             &.welcome {
-    //                 opacity: 1;
-    //                 pointer-events: auto;
-    //                 position: relative;
-    //             }
-    //         }
-    //     }
-    // }
-
     .logo-container, .current-section-container {
         position: relative;
         display: flex;
@@ -237,6 +225,14 @@ nav {
         background: $dark-gray;
     }
 
+    @media (max-width: $tablet-md) {
+        padding: 50px;
+    }
+
+    @media (max-width: $phone-lg) {
+        padding: 50px;
+    }
+
     .content {
         max-width: 1400px;
         margin: 0 auto;
@@ -268,137 +264,128 @@ nav {
         line-height: 1;
     }
 
-    @media (max-width: $tablet-md) {
-        padding: 50px;
+    .col-container {
+        display: flex;
+        flex-flow: row wrap;
+        margin-right: -40px;
+        margin-bottom: -40px;
     }
 
-    @media (max-width: $phone-lg) {
-        padding: 50px;
-    }
-}
-
-.col-container {
-    display: flex;
-    flex-flow: row wrap;
-    margin-right: -40px;
-    margin-bottom: -40px;
-}
-
-.col {
-    display: flex;
-    flex-flow: column;
-
-    margin-right: 40px;
-    margin-bottom: 40px;
-}
-
-.first-section {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: url(../images/hero.jpg) no-repeat;
-    background-size: cover;
-    height: 100vh;
-
-    &::before {
-        content: "";
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
-        opacity: 0.9;
-    }
-
-    .content {
-        position: relative;
-        z-index: 2;
+    .col {
         display: flex;
         flex-flow: column;
+
+        margin-right: 40px;
+        margin-bottom: 40px;
+    }
+
+    &.welcome {
+        position: relative;
+        display: flex;
         justify-content: center;
         align-items: center;
 
-        padding: 60px;
+        background: url(../images/hero.jpg) no-repeat;
+        background-size: cover;
+        height: 100vh;
 
-        .headshot {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            background: url(../images/headshot.jpg) no-repeat;
-            background-size: cover;
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
+            opacity: 0.9;
         }
 
-        .name {
-            font-size: $fs-large;
-            font-weight: $bold;
-            margin-bottom: 20px;
-            color: $white;
-            text-align: center;
-            line-height: 1;
-        }
+        .content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
 
-        .desc {
-            font-size: $fs-h3;
-            color: $white;
-            text-align: center;
+            padding: 60px;
+
+            .headshot {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                margin-bottom: 20px;
+                background: url(../images/headshot.jpg) no-repeat;
+                background-size: cover;
+            }
+
+            .name {
+                font-size: $fs-large;
+                font-weight: $bold;
+                margin-bottom: 20px;
+                color: $white;
+                text-align: center;
+                line-height: 1;
+            }
+
+            .desc {
+                font-size: $fs-h3;
+                color: $white;
+                text-align: center;
+            }
         }
     }
-}
 
-.about {
-    .content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .row {
-        display: flex;
-        flex-flow: row;
-
-        &.row-1 {
-            align-items: flex-end;
-            margin-bottom: 100px;
+    &.about {
+        .content {
+            display: flex;
+            flex-direction: column;
         }
 
-        &.row-2 {
+        .row {
+            display: flex;
+            flex-flow: row;
 
-        }
-    }
+            &.row-1 {
+                align-items: flex-end;
+                margin-bottom: 100px;
+            }
 
-    img {
-        align-self: flex-start;
-        flex-basis: 600px;
+            &.row-2 {
 
-        max-width: 75%;
-        height: auto;
-        @extend %green-shadow;
-
-        &.img-1 {
-            margin-left: -7.5%;
+            }
         }
 
-        &.img-2 {
+        img {
+            align-self: flex-start;
+            flex-basis: 600px;
+
             max-width: 75%;
-            align-self: flex-end;
-            margin-top: 20%;
-            margin: 15% -15% 0 0;
+            height: auto;
+            @extend %green-shadow;
+
+            &.img-1 {
+                margin-left: -7.5%;
+            }
+
+            &.img-2 {
+                max-width: 75%;
+                align-self: flex-end;
+                margin-top: 20%;
+                margin: 15% -15% 0 0;
+            }
+
+            &.img-3 {
+
+            }
         }
 
-        &.img-3 {
-
-        }
-    }
-
-    .text {
-        max-width: 600px;
+        .text {
+            max-width: 600px;
         // align-self: flex-end;
 
         color: $white;
@@ -411,7 +398,7 @@ nav {
     }
 }
 
-.projects {
+&.projects {
     // background: $text-color;
 
     .section-title {
@@ -472,7 +459,7 @@ nav {
     }
 }
 
-.resume {
+&.resume {
     display: flex;
     flex-flow: row wrap;
 
@@ -591,4 +578,9 @@ nav {
             }
         }
     }
+}
+
+&.contact {
+
+}
 }

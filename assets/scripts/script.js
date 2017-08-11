@@ -10,87 +10,99 @@ $(document).ready(function () {
 
 
 
-let logged = false;
+// let logged = false;
 
 $(window).scroll(function() {
 	let windowT = $(window).scrollTop();
 
-	let firstT = $(".container.first-section").position().top;
-	let firstH = firstT + $(".container.first-section").outerHeight();
+	let firstT = $("#welcome").position().top;
+	let firstH = firstT + $("#welcome").outerHeight();
 
-	let aboutT = $(".container.about").position().top;
-	let aboutH = aboutT + $(".container.about").outerHeight();
+	let aboutT = $("#about").position().top;
+	let aboutH = aboutT + $("#about").outerHeight();
 
-	let projectsT = $(".container.projects").position().top;
-	let projectsH = projectsT + $(".container.projects").outerHeight();
+	let projectsT = $("#projects").position().top;
+	let projectsH = projectsT + $("#projects").outerHeight();
 
-	let resumeT = $(".container.resume").position().top;
-	let resumeH = resumeT + $(".container.resume").outerHeight();
+	let resumeT = $("#resume").position().top;
+	let resumeH = resumeT + $("#resume").outerHeight();
 
-	let contactT = $(".container.contact").position().top;
-	let contactH = resumeT + $(".container.contact").outerHeight();
+	let contactT = $("#contact").position().top;
+	let contactH = resumeT + $("#contact").outerHeight();
 
-	if (windowT >= firstT) {
-		$("nav").addClass("scrolled");
-	}
 
-	else if (windowT >= firstT && windowT < firstH) {
+	function reset () {
 		$("nav").removeClass();
 		$(".container").removeClass("active");
+	}
 
-		$(".container.first-section").addClass("active");
-		$("nav.welcome").addClass("welcome");
+	// if (windowT >= firstT) {
+	// 	reset();
+
+	// 	$("nav").addClass("scrolled");
+	// }
+
+	if (windowT >= firstT && windowT < firstH) {
+		reset();
+
+		$("#first-section").addClass("active");
+		$("nav").addClass("welcome");
+
+		console.log("welcome");
 	}
 
 	else if (windowT >= aboutT && windowT < aboutH) {
-		$("nav").removeClass();
-		$(".container").removeClass("active");
+		reset();
 
-		$(".container.about").addClass("active");
-		$("nav.about").addClass("about");
+		$("#about").addClass("active");
+		$("nav").addClass("about");
+
+		console.log("about");
 	}
 
 	else if (windowT >= projectsT && windowT < projectsH) {
-		$("nav").removeClass();
-		$(".container").removeClass("active");
+		reset();
 
-		$(".container.projects").addClass("active");
-		$("nav.projects").addClass("projects");
+		$("#projects").addClass("active");
+		$("nav").addClass("projects");
+
+		console.log("projects");
 	}
 
 	else if (windowT >= resumeT && windowT < resumeH) {
-		$("nav").removeClass();
-		$(".container").removeClass("active");
+		reset();
 
-		$(".container.resume").addClass("active");
-		$("nav.resume").addClass("resume");
+		$("#resume").addClass("active");
+		$("nav").addClass("resume");
+
+		console.log("resume");
 	}
 
 	else if (windowT >= contactT && windowT < contactH) {
-		$("nav").removeClass();
-		$(".container").removeClass("active");
+		reset();
 
-		$(".container.contact").addClass("active");
-		$("nav.contact").addClass("contact");
+		$("#contact").addClass("active");
+		$("nav").addClass("contact");
+
+		console.log("contact");
 	}
 
 	else {
-		$("nav").removeClass("scrolled");
-		$(".container").removeClass("active");
+		reset();
 	}
 
-	if (!logged) {
-		console.log("aboutT is " + aboutT);
-		console.log("projectsT is " + projectsT);
-		console.log("resumeT is " + resumeT);
+	// if (!logged) {
+	// 	console.log("aboutT is " + aboutT);
+	// 	console.log("projectsT is " + projectsT);
+	// 	console.log("resumeT is " + resumeT);
 
-		console.log("aboutH is " + aboutH);
-		console.log("projectsH is " + projectsH);
-		console.log("resumeH is " + resumeH);
+	// 	console.log("aboutH is " + aboutH);
+	// 	console.log("projectsH is " + projectsH);
+	// 	console.log("resumeH is " + resumeH);
 
-		logged = true;
-	}
+	// 	logged = true;
+	// }
 
-	console.log("windowT is " + windowT);
+	// console.log("windowT is " + windowT);
 
 });
