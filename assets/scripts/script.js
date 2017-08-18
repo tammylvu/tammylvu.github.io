@@ -32,7 +32,7 @@ $(window).scroll(function() {
 
 
 	function reset () {
-		$("nav").removeClass();
+		$("body, nav").removeClass();
 		$(".container").removeClass("active");
 	}
 
@@ -46,45 +46,45 @@ $(window).scroll(function() {
 		reset();
 
 		$("#first-section").addClass("active");
-		$("nav").addClass("welcome");
+		$("body, nav").addClass("welcome");
 
-		console.log("welcome");
+		// console.log("welcome");
 	}
 
 	else if (windowT >= aboutT && windowT < aboutH) {
 		reset();
 
 		$("#about").addClass("active");
-		$("nav").addClass("about");
+		$("body, nav").addClass("about");
 
-		console.log("about");
+		// console.log("about");
 	}
 
 	else if (windowT >= projectsT && windowT < projectsH) {
 		reset();
 
 		$("#projects").addClass("active");
-		$("nav").addClass("projects");
+		$("body, nav").addClass("projects");
 
-		console.log("projects");
+		// console.log("projects");
 	}
 
 	else if (windowT >= resumeT && windowT < resumeH) {
 		reset();
 
 		$("#resume").addClass("active");
-		$("nav").addClass("resume");
+		$("body, nav").addClass("resume");
 
-		console.log("resume");
+		// console.log("resume");
 	}
 
 	else if (windowT >= contactT && windowT < contactH) {
 		reset();
 
 		$("#contact").addClass("active");
-		$("nav").addClass("contact");
+		$("body, nav").addClass("contact");
 
-		console.log("contact");
+		// console.log("contact");
 	}
 
 	else {

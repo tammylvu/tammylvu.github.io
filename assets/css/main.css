@@ -423,6 +423,13 @@ html, body {
   font-weight: 300;
   overflow-x: hidden; }
 
+body.about {
+  background: #3f4e5e; }
+body.projects {
+  background: #fff; }
+body.resume {
+  background: #222; }
+
 a {
   text-decoration: none; }
   a:hover, a:active, a:visited, a:focus {
@@ -443,7 +450,6 @@ ul {
   opacity: 0;
   pointer-events: none; }
   .overlay.open {
-    opacity: 1;
     pointer-events: auto; }
 
 nav {
@@ -543,8 +549,6 @@ nav {
   .container.full-bleed {
     padding: 100px 0;
     max-width: none; }
-  .container.active {
-    background: #222; }
   @media (max-width: 768px) {
     .container {
       padding: 50px; } }

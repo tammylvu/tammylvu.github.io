@@ -8,13 +8,34 @@
     color: $white;
 }
 
-
 html, body {
     font-family: 'Fira Sans', sans-serif;
     color: $text-color;
     font-size: 10px;
     font-weight: $light;
     overflow-x: hidden;
+}
+
+body {
+    &.welcome {
+
+    }
+
+    &.about {
+        background: $darker-blue;
+    }
+
+    &.projects {
+        background: $white;
+    }
+
+    &.resume {
+        background: $dark-gray;
+    }
+
+    &.contact {
+
+    }
 }
 
 a {
@@ -50,7 +71,7 @@ ul {
 
     &.open {
         // background: rgba(255, 255, 255, 0.75);
-        opacity: 1;
+        // opacity: 1;
         pointer-events: auto;
     }
 }
@@ -129,7 +150,6 @@ nav {
     }
 
     .current-section-container {
-
 
         .dropdown-arrow {
             position: relative;
@@ -222,7 +242,7 @@ nav {
     }
 
     &.active {
-        background: $dark-gray;
+
     }
 
     @media (max-width: $tablet-md) {
@@ -386,201 +406,195 @@ nav {
 
         .text {
             max-width: 600px;
-        // align-self: flex-end;
 
-        color: $white;
-        background: $darker-blue;
-        font-size: $fs-h4;
-        padding: 40px;
-        margin: 0 0 5% -10%;
-
-        @extend %green-shadow;
-    }
-}
-
-&.projects {
-    // background: $text-color;
-
-    .section-title {
-        // margin-left: 40px;
-    }
-    .projects-container {
-        display: flex;
-        flex-flow: row wrap;
-        background: linear-gradient(135deg, $color-2 0%, $color-1 100%);
-
-        .a-project {
-            display: flex;
-            flex-flow: column;
-            flex-basis: 33.3333333%;
-
-            padding: 40px;
-            background: $color-1;
             color: $white;
-            cursor: pointer;
+            background: $darker-blue;
+            font-size: $fs-h4;
+            padding: 40px;
+            margin: 0 0 5% -10%;
 
-            @for $i from 1 through 6 {
-                &:nth-of-type(#{$i + 1}) {
-                    background: darken($color-1, percentage($i * 0.015));
-                    // background: adjust-color($color-1, $lightness: percentage($i * -0.0167), $hue: $i * 5);
+            @extend %green-shadow;
+        }
+    }
+
+    &.projects {
+
+        .section-title {
+            // margin-left: 40px;
+        }
+        .projects-container {
+            display: flex;
+            flex-flow: row wrap;
+            background: linear-gradient(135deg, $color-2 0%, $color-1 100%);
+
+            .a-project {
+                display: flex;
+                flex-flow: column;
+                flex-basis: 33.3333333%;
+
+                padding: 40px;
+                background: $color-1;
+                color: $white;
+                cursor: pointer;
+
+                @for $i from 1 through 6 {
+                    &:nth-of-type(#{$i + 1}) {
+                        background: darken($color-1, percentage($i * 0.015));
+                        // background: adjust-color($color-1, $lightness: percentage($i * -0.0167), $hue: $i * 5);
+                    }
+                }
+
+                &:hover {
+                    background: none;
+                }
+
+                .project-name {
+                    font-size: $fs-h3;
+                    font-weight: $bold;
+                }
+
+                .project-desc {
+                    font-size: $fs-h5;
+                    font-style: italic;
                 }
             }
+        }
 
-            &:hover {
-                background: none;
+        @media (max-width: $monitor-md) {
+            .projects-container {
+                .a-project {
+                    flex-basis: 50%;
+                }
             }
+        }
 
-            .project-name {
-                font-size: $fs-h3;
-                font-weight: $bold;
-            }
-
-            .project-desc {
-                font-size: $fs-h5;
-                font-style: italic;
+        @media (max-width: $tablet-md) {
+            .projects-container {
+                .a-project {
+                    flex-basis: 100%;
+                }
             }
         }
     }
 
-    @media (max-width: $monitor-md) {
-        .projects-container {
-            .a-project {
+    &.resume {
+        display: flex;
+        flex-flow: row wrap;
+
+        .section-title {
+            color: $white;
+        }
+
+        .col-container {
+
+        }
+
+        .col {
+            flex-grow: 1;
+
+            &.large {
+                flex-grow: 1;
                 flex-basis: 50%;
             }
-        }
-    }
 
-    @media (max-width: $tablet-md) {
-        .projects-container {
-            .a-project {
-                flex-basis: 100%;
+            &.small {
+                flex-grow: 1;
+                flex-basis: 30%;
             }
         }
-    }
-}
 
-&.resume {
-    display: flex;
-    flex-flow: row wrap;
-
-    // background: $dark-gray;
-    // background: $darker-green;
-    // color: $white;
-
-    .section-title {
-        color: $white;
-    }
-
-    .col-container {
-
-    }
-
-    .col {
-        flex-grow: 1;
-
-        &.large {
-            flex-grow: 1;
-            flex-basis: 50%;
+        .subsection {
+            background: $white;
+            padding: 40px;
+            @extend %green-shadow;
         }
 
-        &.small {
-            flex-grow: 1;
-            flex-basis: 30%;
+        .subsection-title {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+
+            color: $text-color;
         }
-    }
 
-    .subsection {
-        background: $white;
-        padding: 40px;
-        @extend %green-shadow;
-    }
-
-    .subsection-title {
-        position: relative;
-        z-index: 2;
-        display: inline-flex;
-
-        color: $text-color;
-    }
-
-    .subsection-body {
-        position: relative;
-    }
-
-    ul {
-        li {
-
+        .subsection-body {
+            position: relative;
         }
-    }
 
-    .experience {
-        margin-bottom: 40px;
+        ul {
+            li {
 
-        .an-experience {
-            margin-bottom: 1em;
-
-            &:last-of-type {
-                margin-bottom: 0;
             }
+        }
 
-            .experience-title {
+        .experience {
+            margin-bottom: 40px;
+
+            .an-experience {
+                margin-bottom: 1em;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                .experience-title {
+                    font-size: $fs-h4;
+                    font-weight: $bold;
+                }
+
+                .experience-position {
+                    font-size: $fs-body;
+                    font-style: italic;
+                }
+            }
+        }
+
+        .volunteering {
+
+        }
+
+        .education {
+            margin-bottom: 40px;
+
+            .where {
                 font-size: $fs-h4;
                 font-weight: $bold;
             }
 
-            .experience-position {
-                font-size: $fs-body;
+            .when {
+                font-size: $fs-h4;
                 font-style: italic;
+                margin-bottom: 1em;
+            }
+
+            .relevant-courses {
+                font-size: $fs-h4;
+                font-weight: $bold;
+            }
+        }
+
+        .skills {
+            // max-width: 30%;
+
+            .status {
+                font-size: $fs-h4;
+                font-weight: $bold;
+            }
+
+            .subsection-body {
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+            .col {
+                &.two {
+                    flex-basis: 30%;
+                }
             }
         }
     }
 
-    .volunteering {
+    &.contact {
 
     }
-
-    .education {
-        margin-bottom: 40px;
-
-        .where {
-            font-size: $fs-h4;
-            font-weight: $bold;
-        }
-
-        .when {
-            font-size: $fs-h4;
-            font-style: italic;
-            margin-bottom: 1em;
-        }
-
-        .relevant-courses {
-            font-size: $fs-h4;
-            font-weight: $bold;
-        }
-    }
-
-    .skills {
-        // max-width: 30%;
-
-        .status {
-            font-size: $fs-h4;
-            font-weight: $bold;
-        }
-
-        .subsection-body {
-            display: flex;
-            flex-flow: row wrap;
-        }
-
-        .col {
-            &.two {
-                flex-basis: 30%;
-            }
-        }
-    }
-}
-
-&.contact {
-
-}
 }
