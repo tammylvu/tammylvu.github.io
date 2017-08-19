@@ -13,22 +13,24 @@ $(document).ready(function () {
 // let logged = false;
 
 $(window).scroll(function() {
+	const buffer = 0;
+
 	let windowT = $(window).scrollTop();
 
 	let firstT = $("#welcome").position().top;
-	let firstH = firstT + $("#welcome").outerHeight();
+	let firstH = firstT + $("#welcome").outerHeight() - buffer;
 
 	let aboutT = $("#about").position().top;
-	let aboutH = aboutT + $("#about").outerHeight();
+	let aboutH = aboutT + $("#about").outerHeight() - buffer;
 
 	let projectsT = $("#projects").position().top;
-	let projectsH = projectsT + $("#projects").outerHeight();
+	let projectsH = projectsT + $("#projects").outerHeight() - buffer;
 
 	let resumeT = $("#resume").position().top;
-	let resumeH = resumeT + $("#resume").outerHeight();
+	let resumeH = resumeT + $("#resume").outerHeight() - buffer;
 
 	let contactT = $("#contact").position().top;
-	let contactH = resumeT + $("#contact").outerHeight();
+	let contactH = resumeT + $("#contact").outerHeight() - buffer;
 
 
 	function reset () {

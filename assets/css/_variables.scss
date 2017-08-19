@@ -25,8 +25,11 @@ $dark-blue: #596f80;
 $dark-blue-green: #597480;
 $dark-green: #59807d;
 
-$darker-blue: #3f4e5e;
-$darker-green: #3f5e5a;
+$darker-blue: darken($dark-blue, 12.5%);
+$darker-green: darken($dark-green, 12.5%);
+
+$darkest-blue: darken($dark-blue, 25%);
+$darkest-green: darken($dark-green, 25%);
 
 $dark-gray: #222;
 $gray: #999;
@@ -38,7 +41,7 @@ $white: #fff;
 $color-1: $blue-green;
 $color-2: $blue;
 $color-3: $green;
-$text-color: $darker-blue;
+$text-color: $darkest-blue;
 
 
 $phone-sm: 360px;
