@@ -558,7 +558,7 @@ nav {
       padding: 50px; } }
   @media (max-width: 480px) {
     .container {
-      padding: 50px; } }
+      padding: 30px; } }
   .container .content {
     max-width: 1400px;
     margin: 0 auto; }
@@ -578,6 +578,15 @@ nav {
     margin-bottom: 0;
     margin-left: -20px;
     padding: 20px; }
+    @media (max-width: 1152px) {
+      .container .section-title {
+        font-size: 150px; } }
+    @media (max-width: 768px) {
+      .container .section-title {
+        font-size: 100px; } }
+    @media (max-width: 480px) {
+      .container .section-title {
+        font-size: 7.2rem; } }
   .container .subsection-title {
     font-size: 4.8rem;
     font-weight: 700;
@@ -711,6 +720,10 @@ nav {
     flex-flow: row wrap; }
     .container.resume .section-title {
       color: #fff; }
+    @media (max-width: 1152px) {
+      .container.resume .col-container {
+        margin-right: -20px;
+        margin-bottom: -20px; } }
     .container.resume .col {
       flex-grow: 1; }
       .container.resume .col.large {
@@ -719,9 +732,20 @@ nav {
       .container.resume .col.small {
         flex-grow: 1;
         flex-basis: 30%; }
+      @media (max-width: 1152px) {
+        .container.resume .col {
+          margin-right: 20px;
+          margin-bottom: 20px; }
+          .container.resume .col.large, .container.resume .col.small {
+            flex-basis: 100%;
+            margin-bottom: 0; } }
     .container.resume .subsection {
       background: #fff;
-      padding: 40px; }
+      padding: 40px;
+      margin-bottom: 40px; }
+      @media (max-width: 1152px) {
+        .container.resume .subsection {
+          margin-bottom: 20px; } }
     .container.resume .subsection-title {
       position: relative;
       z-index: 2;
@@ -729,30 +753,26 @@ nav {
       color: #3cc4a4; }
     .container.resume .subsection-body {
       position: relative; }
-    .container.resume .experience {
-      margin-bottom: 40px; }
-      .container.resume .experience .an-experience {
-        margin-bottom: 1em; }
-        .container.resume .experience .an-experience:last-of-type {
-          margin-bottom: 0; }
-        .container.resume .experience .an-experience .experience-title {
-          font-size: 2.4rem;
-          font-weight: 700; }
-        .container.resume .experience .an-experience .experience-position {
-          font-size: 1.8rem;
-          font-style: italic; }
-    .container.resume .education {
-      margin-bottom: 40px; }
-      .container.resume .education .where {
+    .container.resume .experience .an-experience {
+      margin-bottom: 1em; }
+      .container.resume .experience .an-experience:last-of-type {
+        margin-bottom: 0; }
+      .container.resume .experience .an-experience .experience-title {
         font-size: 2.4rem;
         font-weight: 700; }
-      .container.resume .education .when {
-        font-size: 2.4rem;
-        font-style: italic;
-        margin-bottom: 1em; }
-      .container.resume .education .relevant-courses {
-        font-size: 2.4rem;
-        font-weight: 700; }
+      .container.resume .experience .an-experience .experience-position {
+        font-size: 1.8rem;
+        font-style: italic; }
+    .container.resume .education .where {
+      font-size: 2.4rem;
+      font-weight: 700; }
+    .container.resume .education .when {
+      font-size: 2.4rem;
+      font-style: italic;
+      margin-bottom: 1em; }
+    .container.resume .education .relevant-courses {
+      font-size: 2.4rem;
+      font-weight: 700; }
     .container.resume .skills .status {
       font-size: 2.4rem;
       font-weight: 700; }
