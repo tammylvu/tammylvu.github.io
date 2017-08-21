@@ -781,5 +781,8 @@ nav {
       flex-flow: row wrap; }
     .container.resume .skills .col.two {
       flex-basis: 30%; }
+    .container.resume .skills ul {
+      list-style: none;
+      padding: 0; }
 
 /*# sourceMappingURL=main.css.map */

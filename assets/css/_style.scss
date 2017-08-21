@@ -28,7 +28,6 @@ body {
     }
 
     &.projects {
-
         background: $darkest-blue;
     }
 
@@ -98,7 +97,7 @@ nav {
     color: $white;
     cursor: pointer;
     @include user-select(none);
-
+    
     &:hover {
         .logo {
             &::after {
@@ -619,7 +618,6 @@ nav {
         }
 
         .skills {
-
             .status {
                 font-size: $fs-h4;
                 font-weight: $bold;
@@ -633,6 +631,15 @@ nav {
             .col {
                 &.two {
                     flex-basis: 30%;
+                }
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+
                 }
             }
         }
