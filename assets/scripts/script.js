@@ -13,78 +13,74 @@ $(document).ready(function () {
 // let logged = false;
 
 $(window).scroll(function() {
+	const buffer = 0;
+
 	let windowT = $(window).scrollTop();
 
 	let firstT = $("#welcome").position().top;
-	let firstH = firstT + $("#welcome").outerHeight();
+	let firstH = firstT + $("#welcome").outerHeight() - buffer;
 
 	let aboutT = $("#about").position().top;
-	let aboutH = aboutT + $("#about").outerHeight();
+	let aboutH = aboutT + $("#about").outerHeight() - buffer;
 
 	let projectsT = $("#projects").position().top;
-	let projectsH = projectsT + $("#projects").outerHeight();
+	let projectsH = projectsT + $("#projects").outerHeight() - buffer;
 
 	let resumeT = $("#resume").position().top;
-	let resumeH = resumeT + $("#resume").outerHeight();
+	let resumeH = resumeT + $("#resume").outerHeight() - buffer;
 
 	let contactT = $("#contact").position().top;
-	let contactH = resumeT + $("#contact").outerHeight();
+	let contactH = resumeT + $("#contact").outerHeight() - buffer;
 
 
 	function reset () {
-		$("nav").removeClass();
+		$("body, nav").removeClass();
 		$(".container").removeClass("active");
 	}
-
-	// if (windowT >= firstT) {
-	// 	reset();
-
-	// 	$("nav").addClass("scrolled");
-	// }
 
 	if (windowT >= firstT && windowT < firstH) {
 		reset();
 
 		$("#first-section").addClass("active");
-		$("nav").addClass("welcome");
+		$("body, nav").addClass("welcome");
 
-		console.log("welcome");
+		// console.log("welcome");
 	}
 
 	else if (windowT >= aboutT && windowT < aboutH) {
 		reset();
 
 		$("#about").addClass("active");
-		$("nav").addClass("about");
+		$("body, nav").addClass("about");
 
-		console.log("about");
+		// console.log("about");
 	}
 
 	else if (windowT >= projectsT && windowT < projectsH) {
 		reset();
 
 		$("#projects").addClass("active");
-		$("nav").addClass("projects");
+		$("body, nav").addClass("projects");
 
-		console.log("projects");
+		// console.log("projects");
 	}
 
 	else if (windowT >= resumeT && windowT < resumeH) {
 		reset();
 
 		$("#resume").addClass("active");
-		$("nav").addClass("resume");
+		$("body, nav").addClass("resume");
 
-		console.log("resume");
+		// console.log("resume");
 	}
 
 	else if (windowT >= contactT && windowT < contactH) {
 		reset();
 
 		$("#contact").addClass("active");
-		$("nav").addClass("contact");
+		$("body, nav").addClass("contact");
 
-		console.log("contact");
+		// console.log("contact");
 	}
 
 	else {
@@ -106,3 +102,43 @@ $(window).scroll(function() {
 	// console.log("windowT is " + windowT);
 
 });
+
+
+// Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+
+    lastScrollTop = st;
+}

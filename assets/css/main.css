@@ -418,10 +418,21 @@ template {
 
 html, body {
   font-family: 'Fira Sans', sans-serif;
-  color: #3f4e5e;
+  color: #252e35;
   font-size: 10px;
   font-weight: 300;
   overflow-x: hidden; }
+
+body {
+  transition: all 0.75s ease-in-out; }
+  body.welcome {
+    background: #222; }
+  body.about {
+    background: #fff; }
+  body.projects {
+    background: #252e35; }
+  body.resume {
+    background: #222; }
 
 a {
   text-decoration: none; }
@@ -443,7 +454,6 @@ ul {
   opacity: 0;
   pointer-events: none; }
   .overlay.open {
-    opacity: 1;
     pointer-events: auto; }
 
 nav {
@@ -454,9 +464,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 50px;
   font-family: 'Fira Mono', monospace;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 400;
   color: #fff;
   cursor: pointer;
@@ -528,7 +538,7 @@ nav {
     background: black;
     padding: 20px;
     width: 100%;
-    top: 70px;
+    top: 60px;
     opacity: 0;
     pointer-events: none;
     transform: scale(0);
@@ -543,14 +553,12 @@ nav {
   .container.full-bleed {
     padding: 100px 0;
     max-width: none; }
-  .container.active {
-    background: #222; }
   @media (max-width: 768px) {
     .container {
       padding: 50px; } }
   @media (max-width: 480px) {
     .container {
-      padding: 50px; } }
+      padding: 30px; } }
   .container .content {
     max-width: 1400px;
     margin: 0 auto; }
@@ -570,6 +578,15 @@ nav {
     margin-bottom: 0;
     margin-left: -20px;
     padding: 20px; }
+    @media (max-width: 1152px) {
+      .container .section-title {
+        font-size: 150px; } }
+    @media (max-width: 768px) {
+      .container .section-title {
+        font-size: 100px; } }
+    @media (max-width: 480px) {
+      .container .section-title {
+        font-size: 7.2rem; } }
   .container .subsection-title {
     font-size: 4.8rem;
     font-weight: 700;
@@ -591,8 +608,6 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(../images/hero.jpg) no-repeat;
-    background-size: cover;
     height: 100vh; }
     .container.welcome::before {
       content: "";
@@ -604,16 +619,16 @@ nav {
       right: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #3cc4a4 20%, #3091f2 100%);
-      opacity: 0.9; }
+      background: linear-gradient(135deg, #3cc4a4 20%, #3091f2 100%); }
     .container.welcome .content {
       position: relative;
       z-index: 2;
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      align-items: center;
       padding: 60px; }
+      .container.welcome .content .info {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-start; }
       .container.welcome .content .headshot {
         width: 200px;
         height: 200px;
@@ -632,6 +647,8 @@ nav {
         font-size: 3.6rem;
         color: #fff;
         text-align: center; }
+      .container.welcome .content .hero {
+        max-width: 100%; }
   .container.about .content {
     display: flex;
     flex-direction: column; }
@@ -656,7 +673,7 @@ nav {
   .container.about .text {
     max-width: 600px;
     color: #fff;
-    background: #3f4e5e;
+    background: #252e35;
     font-size: 2.4rem;
     padding: 40px;
     margin: 0 0 5% -10%; }
@@ -703,6 +720,10 @@ nav {
     flex-flow: row wrap; }
     .container.resume .section-title {
       color: #fff; }
+    @media (max-width: 1152px) {
+      .container.resume .col-container {
+        margin-right: -20px;
+        margin-bottom: -20px; } }
     .container.resume .col {
       flex-grow: 1; }
       .container.resume .col.large {
@@ -711,40 +732,47 @@ nav {
       .container.resume .col.small {
         flex-grow: 1;
         flex-basis: 30%; }
+      @media (max-width: 1152px) {
+        .container.resume .col {
+          margin-right: 20px;
+          margin-bottom: 20px; }
+          .container.resume .col.large, .container.resume .col.small {
+            flex-basis: 100%;
+            margin-bottom: 0; } }
     .container.resume .subsection {
       background: #fff;
-      padding: 40px; }
+      padding: 40px;
+      margin-bottom: 40px; }
+      @media (max-width: 1152px) {
+        .container.resume .subsection {
+          margin-bottom: 20px; } }
     .container.resume .subsection-title {
       position: relative;
       z-index: 2;
       display: inline-flex;
-      color: #3f4e5e; }
+      color: #3cc4a4; }
     .container.resume .subsection-body {
       position: relative; }
-    .container.resume .experience {
-      margin-bottom: 40px; }
-      .container.resume .experience .an-experience {
-        margin-bottom: 1em; }
-        .container.resume .experience .an-experience:last-of-type {
-          margin-bottom: 0; }
-        .container.resume .experience .an-experience .experience-title {
-          font-size: 2.4rem;
-          font-weight: 700; }
-        .container.resume .experience .an-experience .experience-position {
-          font-size: 1.8rem;
-          font-style: italic; }
-    .container.resume .education {
-      margin-bottom: 40px; }
-      .container.resume .education .where {
+    .container.resume .experience .an-experience {
+      margin-bottom: 1em; }
+      .container.resume .experience .an-experience:last-of-type {
+        margin-bottom: 0; }
+      .container.resume .experience .an-experience .experience-title {
         font-size: 2.4rem;
         font-weight: 700; }
-      .container.resume .education .when {
-        font-size: 2.4rem;
-        font-style: italic;
-        margin-bottom: 1em; }
-      .container.resume .education .relevant-courses {
-        font-size: 2.4rem;
-        font-weight: 700; }
+      .container.resume .experience .an-experience .experience-position {
+        font-size: 1.8rem;
+        font-style: italic; }
+    .container.resume .education .where {
+      font-size: 2.4rem;
+      font-weight: 700; }
+    .container.resume .education .when {
+      font-size: 2.4rem;
+      font-style: italic;
+      margin-bottom: 1em; }
+    .container.resume .education .relevant-courses {
+      font-size: 2.4rem;
+      font-weight: 700; }
     .container.resume .skills .status {
       font-size: 2.4rem;
       font-weight: 700; }
@@ -753,5 +781,8 @@ nav {
       flex-flow: row wrap; }
     .container.resume .skills .col.two {
       flex-basis: 30%; }
+    .container.resume .skills ul {
+      list-style: none;
+      padding: 0; }
 
 /*# sourceMappingURL=main.css.map */
