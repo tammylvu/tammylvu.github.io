@@ -7,3 +7,16 @@
     box-shadow: 6px 6px 0px $dark-blue;
     box-shadow: none;
 }
+
+%a-tag-reset {
+    position: static;
+    font-style: normal;
+    font-weight: $light;
+    border: none;
+    padding: 0;
+    color: inherit;
+
+    &:hover, &:active, &:visited, &:focus {
+        // color: inherit;
+    }
+}
