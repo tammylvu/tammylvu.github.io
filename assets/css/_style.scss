@@ -109,7 +109,7 @@ nav {
     height: $nav-height;
 
     font-family: 'Fira Mono', monospace;
-    font-size: $fs-h5;
+    font-size: $fs-h6;
     font-weight: $normal;
     color: $white;
     cursor: pointer;
@@ -311,7 +311,7 @@ nav {
 
         @media (max-width: $monitor-sm) {
             font-size: 150px;
-            margin-left: -$pad -8px;
+            margin-left: -$pad - 8px;
         }
 
         @media (max-width: $tablet-md) {
@@ -320,7 +320,7 @@ nav {
         }
 
         @media (max-width: $phone-lg) {
-            font-size: $fs-large;
+            font-size: $fs-big;
         }
     }
 
@@ -516,7 +516,7 @@ nav {
 
             color: $white;
             background: $darkest-blue;
-            font-size: $fs-h4;
+            font-size: $fs-h5;
             padding: 40px;
             margin: 0 0 5% -10%;
 
@@ -525,7 +525,7 @@ nav {
 
         @media (max-width: $monitor-md) {
             .text {
-                font-size: $fs-h5;
+                font-size: $fs-h6;
             }
         }
 
@@ -554,7 +554,19 @@ nav {
         }
 
         @media (max-width: $phone-lg) {
+            .text {
+                margin-left: -30px;
+                margin-bottom: -20%;
+            }
 
+            img {
+                &.img-1 {
+                    margin-left: 0;
+                    margin-right: -30px;
+                    max-width: none;
+                    width: 100%;
+                }
+            }
         }
     }
 
@@ -572,10 +584,11 @@ nav {
                 @extend %a-tag-reset;
 
                 display: flex;
+                justify-content: center;
                 flex-flow: column;
                 flex-basis: 33.3333333%;
 
-                padding: 40px;
+                padding: 50px;
                 background: $color-1;
                 color: $white;
                 cursor: pointer;
@@ -594,17 +607,28 @@ nav {
                 .project-name {
                     font-size: $fs-h3;
                     font-weight: $bold;
+
+                    @media (max-width: $phone-lg) {
+                        font-size: $fs-h5;
+                    }
                 }
 
                 .project-desc {
-                    font-size: $fs-h5;
+                    font-size: $fs-h6;
                     font-style: italic;
+
+                    @media (max-width: $phone-lg) {
+                        font-size: $fs-label;
+                    }
                 }
             }
         }
 
         @media (max-width: $monitor-md) {
             .projects-container {
+                margin-left: -$cont-spc-lg;
+                margin-right: -$cont-spc-lg;
+
                 .a-project {
                     flex-basis: 50%;
                 }
@@ -613,8 +637,23 @@ nav {
 
         @media (max-width: $tablet-md) {
             .projects-container {
+                margin-left: -$cont-spc-md;
+                margin-right: -$cont-spc-md;
+
                 .a-project {
                     flex-basis: 100%;
+                }
+            }
+        }
+
+        @media (max-width: $phone-lg) {
+            .projects-container {
+                margin-left: -$cont-spc-sm;
+                margin-right: -$cont-spc-sm;
+
+                .a-project {
+                    flex-basis: 100%;
+                    padding: $cont-spc-sm;
                 }
             }
         }
@@ -675,6 +714,15 @@ nav {
             @media (max-width: $monitor-sm) {
                 margin-bottom: $spc-sm;
             }
+
+            @media (max-width: $phone-lg) {
+                padding: $cont-spc-sm;
+            }
+
+            @media (max-width: $phone-sm) {
+                margin-left: -$cont-spc-sm;
+                margin-right: -$cont-spc-sm;
+            }
         }
 
         .subsection-title {
@@ -694,7 +742,7 @@ nav {
         }
 
         .p-title {
-            font-size: $fs-h4;
+            font-size: $fs-h5;
             font-weight: $bold;
 
             &.alt {
@@ -703,7 +751,7 @@ nav {
             }
 
             @media (max-width: $tablet-md) {
-                font-size: $fs-h5;
+                font-size: $fs-h6;
 
                 &.alt {
 
