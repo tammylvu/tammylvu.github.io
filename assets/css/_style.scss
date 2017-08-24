@@ -20,7 +20,7 @@ body {
     transition: all 0.75s ease-in-out;
 
     &.welcome {
-        background: $black;
+        // background: $black;
         // background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
     }
 
@@ -353,55 +353,35 @@ nav {
             bottom: 0;
             width: 75%;
             background: $black;
-            background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
+            // background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
         }
 
         .welcome-right {
             position: absolute;
+            z-index: 2;
             top: 0;
-            left: 0;
+            // left: 0;
             right: 0;
             bottom: 0;
             // margin-left: 30%;
 
-            // background: url(../images/hero.jpg) no-repeat;
-            // background-size: cover;
+            background: url(../images/hero.jpg) no-repeat;
+            background-size: cover;
+            background-position: right;
             height: 100vh;
+            width: 100%;
+            max-width: 25%;
 
             &::before {
                 content: "";
                 position: absolute;
                 z-index: 2;
-                top: 0;
-                bottom: 0;
-                // left: 0;
-                right: 0;
 
                 width: 100%;
                 height: 100%;
-                // background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
-                background: $black;
+                background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
+                // background: $black;
                 opacity: 0.9;
-
-                max-width: 50%;
-                width: 100%;
-            }
-
-            .hero {
-                position: absolute;
-                z-index: 1;
-
-                top: 0;
-                // left: 0;
-                right: 0;
-                bottom: 0;
-
-                width: 100%;
-                max-width: 50%;
-
-                background: url(../images/hero.jpg) no-repeat;
-                background-size: cover;
-                background-origin: right;
             }
         }
 
@@ -429,9 +409,9 @@ nav {
 
             .section-title {
                 margin-bottom: -20px;
-                background: none;
-                -webkit-text-fill-color: initial;
-                color: $white;
+                // background: none;
+                // -webkit-text-fill-color: initial;
+                // color: $white;
             }
 
             .desc {
@@ -525,6 +505,10 @@ nav {
             margin: 0 0 5% -10%;
 
             @extend %green-shadow;
+        }
+
+        @media (max-width: $tablet-md) {
+            
         }
     }
 
