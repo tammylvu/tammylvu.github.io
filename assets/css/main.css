@@ -393,7 +393,7 @@ template {
   box-shadow: 6px 6px 0px #59807d;
   box-shadow: none; }
 
-.container.projects .projects-container .a-project {
+.container.welcome .content .social-container .icon, .container.projects .projects-container .a-project {
   position: static;
   font-style: normal;
   font-weight: 300;
@@ -637,7 +637,8 @@ nav {
       left: 0;
       bottom: 0;
       width: 75%;
-      background: #000; }
+      background: #000;
+      background: linear-gradient(135deg, #3cc4a4 20%, #3091f2 100%); }
     .container.welcome .welcome-right {
       position: absolute;
       top: 0;
@@ -654,9 +655,9 @@ nav {
         right: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #3cc4a4 20%, #3091f2 100%);
+        background: #000;
         opacity: 0.9;
-        max-width: 65%;
+        max-width: 50%;
         width: 100%; }
       .container.welcome .welcome-right .hero {
         position: absolute;
@@ -665,9 +666,10 @@ nav {
         right: 0;
         bottom: 0;
         width: 100%;
-        max-width: 65%;
+        max-width: 50%;
         background: url(../images/hero.jpg) no-repeat;
-        background-size: cover; }
+        background-size: cover;
+        background-origin: right; }
     .container.welcome .content {
       position: relative;
       z-index: 4; }
@@ -699,10 +701,15 @@ nav {
         .container.welcome .content .social-container .icon {
           width: 75px;
           height: 75px;
-          margin-right: 20px;
-          cursor: pointer; }
+          margin-right: 40px;
+          cursor: pointer;
+          transition-duration: 0.2s; }
           .container.welcome .content .social-container .icon:last-of-type {
             margin-right: 0; }
+          .container.welcome .content .social-container .icon:hover {
+            transform: scale(0.95); }
+          .container.welcome .content .social-container .icon:active {
+            transform: scale(0.9); }
   .container.about .content {
     display: flex;
     flex-direction: column; }
