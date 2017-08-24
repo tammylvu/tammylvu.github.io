@@ -562,7 +562,22 @@ nav {
     transform: scale(0);
     transform-origin: top center; }
     nav .dropdown-container .dropdown-item {
-      padding: 10px 0; }
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      transition-duration: 0.2s; }
+      nav .dropdown-container .dropdown-item::after {
+        content: "";
+        height: 2px;
+        background: #fff;
+        flex-grow: 0;
+        margin-left: 10px; }
+      nav .dropdown-container .dropdown-item:hover {
+        opacity: 0.5; }
+      nav .dropdown-container .dropdown-item:active::after {
+        flex-grow: 1; }
+      nav .dropdown-container .dropdown-item.current {
+        transform: translateX(10px); }
 
 .container {
   font-size: 1.8rem;

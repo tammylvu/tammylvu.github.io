@@ -228,23 +228,35 @@ nav {
         transform-origin: top center;
 
         .dropdown-item {
+            display: flex;
+            align-items: center;
+
             padding: 10px 0;
-        }
 
-        .welcome {
+            transition-duration: 0.2s;
 
-        }
+            &::after {
+                content: "";
+                height: 2px;
+                background: $white;
+                flex-grow: 0;
+                margin-left: 10px;
+            }
 
-        .about {
+            &:hover {
+                opacity: 0.5;
+            }
 
-        }
+            &:active {
+                // transform: translateX(10px);
+                &::after {
+                    flex-grow: 1;
+                }
+            }
 
-        .projects {
-
-        }
-
-        .resume {
-
+            &.current {
+                transform: translateX(10px);
+            }
         }
     }
 
