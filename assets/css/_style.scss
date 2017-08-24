@@ -20,7 +20,7 @@ body {
     transition: all 0.75s ease-in-out;
 
     &.welcome {
-        background: $black;
+        // background: $black;
         // background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
     }
 
@@ -265,10 +265,10 @@ nav {
 .container {
     font-size: $fs-body;
     line-height: 1.5;
-    padding: 100px;
+    padding: $cont-spc-lg;
 
     &.full-bleed {
-        padding: 100px 0;
+        padding: $cont-spc-lg 0;
         max-width: none;
     }
 
@@ -277,11 +277,11 @@ nav {
     }
 
     @media (max-width: $tablet-md) {
-        padding: 50px;
+        padding: $cont-spc-md;
     }
 
     @media (max-width: $phone-lg) {
-        padding: 30px;
+        padding: $cont-spc-sm;
     }
 
     .content {
@@ -316,7 +316,7 @@ nav {
 
         @media (max-width: $tablet-md) {
             font-size: 100px;
-            margin-left: -$pad - 5px;
+            margin-left: -$pad;
         }
 
         @media (max-width: $phone-lg) {
@@ -330,6 +330,10 @@ nav {
         color: $color-1;
         margin-bottom: 0.5em;
         line-height: 1;
+
+        @media (max-width: $tablet-md) {
+            font-size: $fs-h3;
+        }
     }
 
     .col-container {
@@ -365,52 +369,35 @@ nav {
             bottom: 0;
             width: 75%;
             background: $black;
+            // background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
         }
 
         .welcome-right {
             position: absolute;
+            z-index: 2;
             top: 0;
-            left: 0;
+            // left: 0;
             right: 0;
             bottom: 0;
             // margin-left: 30%;
 
-            // background: url(../images/hero.jpg) no-repeat;
-            // background-size: cover;
+            background: url(../images/hero.jpg) no-repeat;
+            background-size: cover;
+            background-position: right;
             height: 100vh;
+            width: 100%;
+            max-width: 25%;
 
             &::before {
                 content: "";
                 position: absolute;
                 z-index: 2;
-                top: 0;
-                bottom: 0;
-                // left: 0;
-                right: 0;
 
                 width: 100%;
                 height: 100%;
                 background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
+                // background: $black;
                 opacity: 0.9;
-
-                max-width: 65%;
-                width: 100%;
-            }
-
-            .hero {
-                position: absolute;
-                z-index: 1;
-
-                top: 0;
-                // left: 0;
-                right: 0;
-                bottom: 0;
-
-                width: 100%;
-                max-width: 65%;
-
-                background: url(../images/hero.jpg) no-repeat;
-                background-size: cover;
             }
         }
 
@@ -438,9 +425,9 @@ nav {
 
             .section-title {
                 margin-bottom: -20px;
-                background: none;
-                -webkit-text-fill-color: initial;
-                color: $white;
+                // background: none;
+                // -webkit-text-fill-color: initial;
+                // color: $white;
             }
 
             .desc {
@@ -455,14 +442,25 @@ nav {
                 flex-flow: row wrap;
 
                 .icon {
+                    @extend %a-tag-reset;
+
                     width: 75px;
                     height: 75px;
-                    margin-right: 20px;
-
+                    margin-right: 40px;
                     cursor: pointer;
+
+                    transition-duration: 0.2s;
 
                     &:last-of-type {
                         margin-right: 0;
+                    }
+
+                    &:hover {
+                        transform: scale(0.95);
+                    }
+
+                    &:active {
+                        transform: scale(0.9);
                     }
                 }
             }
@@ -523,6 +521,40 @@ nav {
             margin: 0 0 5% -10%;
 
             @extend %green-shadow;
+        }
+
+        @media (max-width: $monitor-md) {
+            .text {
+                font-size: $fs-h5;
+            }
+        }
+
+        @media (max-width: $monitor-sm) {
+            .row {
+                &.row-1 {
+                    flex-flow: row wrap;
+                }
+            }
+
+            img {
+                max-width: 100%;
+
+                &.img-1 {
+                    order: 2;
+                }
+            }
+
+            .text {
+                z-index: 1;
+                font-size: $fs-body;
+                margin: 0;
+                padding: $cont-spc-sm;
+                margin-bottom: -20%;
+            }
+        }
+
+        @media (max-width: $phone-lg) {
+
         }
     }
 
@@ -655,11 +687,33 @@ nav {
 
         .subsection-body {
             position: relative;
+
+            @media (max-width: $tablet-md) {
+                font-size: $fs-label;
+            }
+        }
+
+        .p-title {
+            font-size: $fs-h4;
+            font-weight: $bold;
+
+            &.alt {
+                font-style: italic;
+                font-weight: $light;
+            }
+
+            @media (max-width: $tablet-md) {
+                font-size: $fs-h5;
+
+                &.alt {
+
+                }
+            }
         }
 
         ul {
-            li {
-
+            @media (max-width: $phone-lg) {
+                padding-left: 20px;
             }
         }
 
@@ -673,12 +727,10 @@ nav {
                 }
 
                 .experience-title {
-                    font-size: $fs-h4;
-                    font-weight: $bold;
+
                 }
 
                 .experience-position {
-                    font-size: $fs-body;
                     font-style: italic;
                 }
             }
@@ -691,19 +743,15 @@ nav {
         .education {
 
             .where {
-                font-size: $fs-h4;
-                font-weight: $bold;
+
             }
 
             .when {
-                font-size: $fs-h4;
-                font-style: italic;
                 margin-bottom: 1em;
             }
 
             .relevant-courses {
-                font-size: $fs-h4;
-                font-weight: $bold;
+
             }
 
             ul {
@@ -714,8 +762,7 @@ nav {
 
         .skills {
             .status {
-                font-size: $fs-h4;
-                font-weight: $bold;
+
             }
 
             .subsection-body {

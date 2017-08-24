@@ -393,7 +393,7 @@ template {
   box-shadow: 6px 6px 0px #59807d;
   box-shadow: none; }
 
-.container.projects .projects-container .a-project {
+.container.welcome .content .social-container .icon, .container.projects .projects-container .a-project {
   position: static;
   font-style: normal;
   font-weight: 300;
@@ -433,8 +433,6 @@ html, body {
 
 body {
   transition: all 0.75s ease-in-out; }
-  body.welcome {
-    background: #000; }
   body.about {
     background: #fff; }
   body.projects {
@@ -619,7 +617,7 @@ nav {
     @media (max-width: 768px) {
       .container .section-title {
         font-size: 100px;
-        margin-left: -15px; } }
+        margin-left: -10px; } }
     @media (max-width: 480px) {
       .container .section-title {
         font-size: 7.2rem; } }
@@ -629,6 +627,9 @@ nav {
     color: #3cc4a4;
     margin-bottom: 0.5em;
     line-height: 1; }
+    @media (max-width: 768px) {
+      .container .subsection-title {
+        font-size: 3.6rem; } }
   .container .col-container {
     display: flex;
     flex-flow: row wrap;
@@ -655,34 +656,24 @@ nav {
       background: #000; }
     .container.welcome .welcome-right {
       position: absolute;
+      z-index: 2;
       top: 0;
-      left: 0;
       right: 0;
       bottom: 0;
-      height: 100vh; }
+      background: url(../images/hero.jpg) no-repeat;
+      background-size: cover;
+      background-position: right;
+      height: 100vh;
+      width: 100%;
+      max-width: 25%; }
       .container.welcome .welcome-right::before {
         content: "";
         position: absolute;
         z-index: 2;
-        top: 0;
-        bottom: 0;
-        right: 0;
         width: 100%;
         height: 100%;
         background: linear-gradient(135deg, #3cc4a4 20%, #3091f2 100%);
-        opacity: 0.9;
-        max-width: 65%;
-        width: 100%; }
-      .container.welcome .welcome-right .hero {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        max-width: 65%;
-        background: url(../images/hero.jpg) no-repeat;
-        background-size: cover; }
+        opacity: 0.9; }
     .container.welcome .content {
       position: relative;
       z-index: 4; }
@@ -699,10 +690,7 @@ nav {
         background: url(../images/headshot.jpg) no-repeat;
         background-size: cover; }
       .container.welcome .content .section-title {
-        margin-bottom: -20px;
-        background: none;
-        -webkit-text-fill-color: initial;
-        color: #fff; }
+        margin-bottom: -20px; }
       .container.welcome .content .desc {
         font-size: 3.6rem;
         color: #fff;
@@ -714,10 +702,15 @@ nav {
         .container.welcome .content .social-container .icon {
           width: 75px;
           height: 75px;
-          margin-right: 20px;
-          cursor: pointer; }
+          margin-right: 40px;
+          cursor: pointer;
+          transition-duration: 0.2s; }
           .container.welcome .content .social-container .icon:last-of-type {
             margin-right: 0; }
+          .container.welcome .content .social-container .icon:hover {
+            transform: scale(0.95); }
+          .container.welcome .content .social-container .icon:active {
+            transform: scale(0.9); }
   .container.about .content {
     display: flex;
     flex-direction: column; }
@@ -746,6 +739,22 @@ nav {
     font-size: 2.4rem;
     padding: 40px;
     margin: 0 0 5% -10%; }
+  @media (max-width: 1280px) {
+    .container.about .text {
+      font-size: 2rem; } }
+  @media (max-width: 1152px) {
+    .container.about .row.row-1 {
+      flex-flow: row wrap; }
+    .container.about img {
+      max-width: 100%; }
+      .container.about img.img-1 {
+        order: 2; }
+    .container.about .text {
+      z-index: 1;
+      font-size: 1.8rem;
+      margin: 0;
+      padding: 30px;
+      margin-bottom: -20%; } }
   .container.projects .projects-container {
     display: flex;
     flex-flow: row wrap;
@@ -822,32 +831,32 @@ nav {
       color: #3cc4a4; }
     .container.resume .subsection-body {
       position: relative; }
+      @media (max-width: 768px) {
+        .container.resume .subsection-body {
+          font-size: 1.4rem; } }
+    .container.resume .p-title {
+      font-size: 2.4rem;
+      font-weight: 700; }
+      .container.resume .p-title.alt {
+        font-style: italic;
+        font-weight: 300; }
+      @media (max-width: 768px) {
+        .container.resume .p-title {
+          font-size: 2rem; } }
+    @media (max-width: 480px) {
+      .container.resume ul {
+        padding-left: 20px; } }
     .container.resume .experience .an-experience {
       margin-bottom: 1em; }
       .container.resume .experience .an-experience:last-of-type {
         margin-bottom: 0; }
-      .container.resume .experience .an-experience .experience-title {
-        font-size: 2.4rem;
-        font-weight: 700; }
       .container.resume .experience .an-experience .experience-position {
-        font-size: 1.8rem;
         font-style: italic; }
-    .container.resume .education .where {
-      font-size: 2.4rem;
-      font-weight: 700; }
     .container.resume .education .when {
-      font-size: 2.4rem;
-      font-style: italic;
       margin-bottom: 1em; }
-    .container.resume .education .relevant-courses {
-      font-size: 2.4rem;
-      font-weight: 700; }
     .container.resume .education ul {
       list-style: none;
       padding: 0; }
-    .container.resume .skills .status {
-      font-size: 2.4rem;
-      font-weight: 700; }
     .container.resume .skills .subsection-body {
       display: flex;
       flex-flow: row wrap; }

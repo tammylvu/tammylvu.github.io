@@ -1,3 +1,5 @@
+// Fonts
+
 $fs-jumbo: 14.4rem;
 $fs-large: 7.2rem;
 $fs-h1: 5.4rem;
@@ -13,6 +15,8 @@ $light: 300;
 $normal: 400;
 $bold: 700;
 
+
+// Colors
 
 $blue: #3091f2;
 $green: #3dc578;
@@ -45,11 +49,20 @@ $color-3: $green;
 $text-color: $darkest-blue;
 
 
+// Media Query Sizes
+
 $phone-sm: 360px;
 $phone-md: 400px;
 $phone-lg: 480px;
+$tablet-sm: 650px;
 $tablet-md: 768px;
 $tablet-lg: 1024px;
 $monitor-sm: 1152px;
 $monitor-md: 1280px;
 $monitor-lg: 1500px;
+
+
+// Spacing
+$cont-spc-lg: 100px;
+$cont-spc-md: 50px;
+$cont-spc-sm: 30px;
