@@ -694,7 +694,6 @@ nav {
       .container.welcome .content .desc {
         font-size: 3.6rem;
         color: #fff;
-        text-align: center;
         margin-bottom: 20px; }
       .container.welcome .content .social-container {
         display: flex;
@@ -711,6 +710,9 @@ nav {
             transform: scale(0.95); }
           .container.welcome .content .social-container .icon:active {
             transform: scale(0.9); }
+      @media (max-width: 768px) {
+        .container.welcome .content .desc {
+          font-size: 2.4rem; } }
   .container.about .content {
     display: flex;
     flex-direction: column; }
@@ -725,8 +727,6 @@ nav {
     flex-basis: 600px;
     max-width: 75%;
     height: auto; }
-    .container.about img.img-1 {
-      margin-left: -7.5%; }
     .container.about img.img-2 {
       max-width: 75%;
       align-self: flex-end;
@@ -738,7 +738,7 @@ nav {
     background: #252e35;
     font-size: 2.4rem;
     padding: 40px;
-    margin: 0 0 5% -10%; }
+    margin: 0 0 5% -20%; }
   @media (max-width: 1280px) {
     .container.about .text {
       font-size: 2rem; } }
@@ -748,13 +748,14 @@ nav {
     .container.about img {
       max-width: 100%; }
       .container.about img.img-1 {
-        order: 2; }
+        order: 2;
+        margin-left: 100px; }
     .container.about .text {
       z-index: 1;
       font-size: 1.8rem;
       margin: 0;
       padding: 30px;
-      margin-bottom: -20%; } }
+      margin-bottom: -30%; } }
   @media (max-width: 480px) {
     .container.about .text {
       margin-left: -30px;

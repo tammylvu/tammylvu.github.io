@@ -433,7 +433,6 @@ nav {
             .desc {
                 font-size: $fs-h3;
                 color: $white;
-                text-align: center;
                 margin-bottom: 20px;
             }
 
@@ -462,6 +461,12 @@ nav {
                     &:active {
                         transform: scale(0.9);
                     }
+                }
+            }
+
+            @media (max-width: $tablet-md) {
+                .desc {
+                    font-size: $fs-h5;
                 }
             }
         }
@@ -496,7 +501,7 @@ nav {
             @extend %green-shadow;
 
             &.img-1 {
-                margin-left: -7.5%;
+                // margin-left: -7.5%;
             }
 
             &.img-2 {
@@ -518,7 +523,7 @@ nav {
             background: $darkest-blue;
             font-size: $fs-h5;
             padding: 40px;
-            margin: 0 0 5% -10%;
+            margin: 0 0 5% -20%;
 
             @extend %green-shadow;
         }
@@ -541,6 +546,7 @@ nav {
 
                 &.img-1 {
                     order: 2;
+                    margin-left: $cont-spc-lg;
                 }
             }
 
@@ -549,7 +555,7 @@ nav {
                 font-size: $fs-body;
                 margin: 0;
                 padding: $cont-spc-sm;
-                margin-bottom: -20%;
+                margin-bottom: -30%;
             }
         }
 
