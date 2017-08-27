@@ -19,3 +19,13 @@
 		opacity: 0;
 	}
 }
+
+@keyframes grow {
+	0% {
+
+	}
+
+	100% {
+		height: $scroll-arrow-h;
+	}
+}

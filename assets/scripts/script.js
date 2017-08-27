@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	$(".current-section-container").click(function () {
+	$("nav .logo-container, nav .current-section-container").click(function () {
 		$("nav, .overlay").toggleClass("open");
 	});
 
