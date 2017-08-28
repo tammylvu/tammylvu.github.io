@@ -439,8 +439,10 @@ html, body {
 
 body {
   transition: all 0.75s ease-in-out; }
+  body.welcome {
+    background: #000; }
   body.about {
-    background: #fff; }
+    background: #000; }
   body.projects {
     background: #252e35; }
   body.resume {
@@ -978,6 +980,7 @@ nav {
       flex-flow: row wrap;
       align-items: center; }
     .container.contact .social-container {
+      margin: 0;
       margin-left: 20px; }
       .container.contact .social-container .icon {
         width: 40px;

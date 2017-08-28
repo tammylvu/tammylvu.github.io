@@ -20,12 +20,13 @@ body {
     transition: all 0.75s ease-in-out;
 
     &.welcome {
-        // background: $black;
+        background: $black;
         // @extend %gradient-1;
     }
 
     &.about {
-        background: $white;
+        // background: $white;
+        background: $black;
     }
 
     &.projects {
@@ -943,7 +944,9 @@ nav {
         }
 
         .social-container {
+            margin: 0;
             margin-left: 20px;
+
             .icon {
                 width: 40px;
                 height: 40px;
