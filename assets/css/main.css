@@ -582,8 +582,8 @@ nav {
         opacity: 0.5; }
       nav .dropdown-container .dropdown-item:active::after {
         flex-grow: 1; }
-      nav .dropdown-container .dropdown-item.current {
-        transform: translateX(10px); }
+      nav .dropdown-container .dropdown-item.current::after {
+        flex-grow: 1; }
 
 .container {
   font-size: 1.8rem;

@@ -1,10 +1,54 @@
+let windowT;
+
+let firstT;
+let firstH;
+
+let aboutT;
+let aboutH;
+
+let projectsT;
+let projectsH;
+
+let resumeT;
+let resumeH;
+
+
 $(document).ready(function () {
 	$("nav .logo-container, nav .current-section-container").click(function () {
-		$("nav, .overlay").toggleClass("open");
+		$("nav, .overlay").addClass("open");
 	});
 
 	$(".overlay").click(function () {
 		$("nav, .overlay").removeClass("open");
+	});
+
+	$(".dropdown-item").click(function() {
+		$(".dropdown-item").removeClass("current");
+		$(this).addClass("current");
+
+		if ($(this).hasClass("welcome")) {
+			$("html, body").animate({
+				scrollTop: firstT
+			}, 500);
+		}
+
+		else if ($(this).hasClass("about")) {
+			$("html, body").animate({
+				scrollTop: aboutT
+			}, 500);
+		}
+
+		else if ($(this).hasClass("projects")) {
+			$("html, body").animate({
+				scrollTop: projectsT
+			}, 500);
+		}
+
+		else if ($(this).hasClass("resume")) {
+			$("html, body").animate({
+				scrollTop: resumeT
+			}, 500);
+		}
 	});
 });
 
@@ -13,19 +57,19 @@ $(document).ready(function () {
 $(window).scroll(function() {
 	const buffer = 0;
 
-	let windowT = $(window).scrollTop();
+	windowT = $(window).scrollTop();
 
-	let firstT = $("#welcome").position().top;
-	let firstH = firstT + $("#welcome").outerHeight() - buffer;
+	firstT = $("#welcome").position().top;
+	firstH = firstT + $("#welcome").outerHeight() - buffer;
 
-	let aboutT = $("#about").position().top;
-	let aboutH = aboutT + $("#about").outerHeight() - buffer;
+	aboutT = $("#about").position().top;
+	aboutH = aboutT + $("#about").outerHeight() - buffer;
 
-	let projectsT = $("#projects").position().top;
-	let projectsH = projectsT + $("#projects").outerHeight() - buffer;
+	projectsT = $("#projects").position().top;
+	projectsH = projectsT + $("#projects").outerHeight() - buffer;
 
-	let resumeT = $("#resume").position().top;
-	let resumeH = resumeT + $("#resume").outerHeight() - buffer;
+	resumeT = $("#resume").position().top;
+	resumeH = resumeT + $("#resume").outerHeight() - buffer;
 
 	// let contactT = $("#contact").position().top;
 	// let contactH = resumeT + $("#contact").outerHeight() - buffer;

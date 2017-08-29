@@ -256,7 +256,9 @@ nav {
             }
 
             &.current {
-                transform: translateX(10px);
+                &::after {
+                    flex-grow: 1;
+                }
             }
         }
     }
