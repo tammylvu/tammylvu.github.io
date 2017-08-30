@@ -705,22 +705,42 @@ nav {
     .container.welcome .scroll-arrow {
       position: absolute;
       z-index: 5;
+      display: flex;
+      justify-content: center;
       top: calc(100% - 80px - 40px);
-      width: 2px;
-      height: 0;
-      background: #fff;
-      animation: grow 1s ease-in-out 0s alternate infinite; }
-      .container.welcome .scroll-arrow::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: -5px;
-        width: 12px;
-        height: 12px;
-        background: transparent;
-        border-bottom: 2px solid #fff;
-        border-right: 2px solid #fff;
-        transform: rotate(45deg); }
+      width: 100px;
+      height: 80px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: pointer; }
+      .container.welcome .scroll-arrow:hover .scroll-arrow-inner {
+        opacity: 0.5; }
+      .container.welcome .scroll-arrow:active .scroll-arrow-inner {
+        opacity: 0.25; }
+      .container.welcome .scroll-arrow .scroll-arrow-inner {
+        position: relative;
+        width: 2px;
+        height: 0;
+        background: #fff;
+        animation: grow 1s ease-in-out 0s alternate infinite; }
+        .container.welcome .scroll-arrow .scroll-arrow-inner::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: -5px;
+          width: 12px;
+          height: 12px;
+          background: transparent;
+          border-bottom: 2px solid #fff;
+          border-right: 2px solid #fff;
+          transform: rotate(45deg); }
+      @media (max-width: 1024px) {
+        .container.welcome .scroll-arrow:hover .scroll-arrow-inner {
+          opacity: 1; }
+        .container.welcome .scroll-arrow:active .scroll-arrow-inner {
+          opacity: 0.5; } }
     .container.welcome .content {
       position: relative;
       z-index: 4; }
@@ -747,12 +767,24 @@ nav {
         .container.welcome .content .desc .emphasis {
           display: block;
           font-weight: 700;
-          font-size: 5.4rem; }
+          font-size: 5.4rem;
+          line-height: 1.25;
+          margin-bottom: 0.15em; }
       .container.welcome .content .col-container .col.grow {
         flex-grow: 1; }
       @media (max-width: 768px) {
         .container.welcome .content .desc {
           font-size: 2.4rem; } }
+      @media (max-width: 480px) {
+        .container.welcome .content .desc {
+          font-size: 2.4rem; }
+          .container.welcome .content .desc .emphasis {
+            font-size: 4.8rem; } }
+      @media (max-width: 360px) {
+        .container.welcome .content .desc {
+          font-size: 1.8rem; }
+          .container.welcome .content .desc .emphasis {
+            font-size: 3.6rem; } }
   .container.about .content {
     display: flex;
     flex-direction: column; }
@@ -778,7 +810,7 @@ nav {
     background: #252e35;
     font-size: 2.4rem;
     padding: 40px;
-    margin: 0 0 5% -20%; }
+    margin: 0 0 5% -18%; }
   @media (max-width: 1280px) {
     .container.about .text {
       font-size: 2rem; } }
@@ -811,7 +843,13 @@ nav {
       max-width: none;
       width: 100%; } }
   @media (max-width: 480px) {
+    .container.about .row.row-1 {
+      margin-bottom: 10px; }
+    .container.about .row.row-2 img {
+      max-width: calc(50% - (10px / 2));
+      margin-right: 10px; }
     .container.about .text {
+      font-size: 1.8rem;
       margin-left: -30px;
       margin-bottom: -20%; }
     .container.about img.img-1 {
@@ -819,6 +857,9 @@ nav {
       margin-right: -30px;
       max-width: none;
       width: 100%; } }
+  @media (max-width: 360px) {
+    .container.about .text {
+      font-size: 1.4rem; } }
   .container.projects .projects-container {
     display: flex;
     flex-flow: row wrap; }

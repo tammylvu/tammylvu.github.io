@@ -440,35 +440,71 @@ nav {
             background-position: right;
             width: 100%;
             height: 50vh;
-            // border-radius: 50%;
         }
 
         .scroll-arrow {
             position: absolute;
             z-index: 5;
+
+            display: flex;
+            justify-content: center;
+
             top: calc(100% - #{$scroll-arrow-h} - 40px);
+            width: 100px;
+            height: $scroll-arrow-h;
 
-            width: 2px;
-            height: 0;
-            background: $white;
+            @include user-select(none);
+            cursor: pointer;
 
-            animation: grow 1s ease-in-out 0s alternate infinite;
-
-            &::before {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: -5px;
-
-                width: 12px;
-                height: 12px;
-                background: transparent;
-                border-bottom: 2px solid $white;
-                border-right: 2px solid $white;
-
-                transform: rotate(45deg);
+            &:hover {
+                .scroll-arrow-inner {
+                    opacity: 0.5;
+                }
             }
 
+            &:active {
+                .scroll-arrow-inner {
+                    opacity: 0.25;
+                }
+            }
+
+            .scroll-arrow-inner {
+                position: relative;
+                width: 2px;
+                height: 0;
+                background: $white;
+
+                animation: grow 1s ease-in-out 0s alternate infinite;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: -5px;
+
+                    width: 12px;
+                    height: 12px;
+                    background: transparent;
+                    border-bottom: 2px solid $white;
+                    border-right: 2px solid $white;
+
+                    transform: rotate(45deg);
+                }
+            }
+
+            @media (max-width: $tablet-lg) {
+                &:hover {
+                    .scroll-arrow-inner {
+                        opacity: 1;
+                    }
+                }
+
+                &:active {
+                    .scroll-arrow-inner {
+                        opacity: 0.5;
+                    }
+                }
+            }
         }
 
         .content {
@@ -506,12 +542,14 @@ nav {
                 font-size: $fs-h4;
                 color: $white;
                 margin-bottom: 20px;
-                
+
 
                 .emphasis {
                     display: block;
                     font-weight: $bold;
                     font-size: $fs-h1;
+                    line-height: 1.25;
+                    margin-bottom: 0.15em;
                 }
             }
 
@@ -528,12 +566,33 @@ nav {
                     font-size: $fs-h5;
                 }
             }
+
+            @media (max-width: $phone-lg) {
+                .desc {
+                    font-size: $fs-h5;
+
+                    .emphasis {
+                        font-size: $fs-h2;
+                    }
+                }
+            }
+
+            @media (max-width: $phone-sm) {
+                .desc {
+                    font-size: $fs-body;
+
+                    .emphasis {
+                        font-size: $fs-h3;
+                    }
+                }
+            }
         }
     }
 
     &.about {
         $gutter: 40px;
         $gutter-sm: 20px;
+        $gutter-xsm: 10px;
 
         .content {
             display: flex;
@@ -586,7 +645,7 @@ nav {
             background: $darkest-blue;
             font-size: $fs-h5;
             padding: $gutter;
-            margin: 0 0 5% -20%;
+            margin: 0 0 5% -18%;
 
             @extend %green-shadow;
         }
@@ -649,7 +708,21 @@ nav {
         }
 
         @media (max-width: $phone-lg) {
+            .row {
+                &.row-1 {
+                    margin-bottom: $gutter-xsm;
+                }
+
+                &.row-2 {
+                    img {
+                        max-width: calc(50% - (#{$gutter-xsm} / 2));
+                        margin-right: $gutter-xsm;
+                    }
+                }
+            }
+
             .text {
+                font-size: $fs-body;
                 margin-left: -$cont-spc-sm;
                 margin-bottom: -20%;
             }
@@ -661,6 +734,12 @@ nav {
                     max-width: none;
                     width: 100%;
                 }
+            }
+        }
+
+        @media (max-width: $phone-sm) {
+            .text {
+                font-size: $fs-label;
             }
         }
     }
