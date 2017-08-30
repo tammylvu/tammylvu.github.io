@@ -18,23 +18,23 @@ html, body {
 
 body {
     transition: all 0.75s ease-in-out;
+    background: $black;
 
     &.welcome {
-        background: $black;
         // @extend %gradient-1;
     }
 
     &.about {
-        // background: $white;
-        background: $black;
+        background: $white;
+        // background: $black;
     }
 
     &.projects {
-        background: $darkest-blue;
+        background: $dark-gray;
     }
 
     &.resume {
-        background: $dark-gray;
+        background: $darkest-blue;
     }
 
     &.contact {
@@ -532,6 +532,9 @@ nav {
     }
 
     &.about {
+        $gutter: 40px;
+        $gutter-sm: 20px;
+
         .content {
             display: flex;
             flex-direction: column;
@@ -543,13 +546,13 @@ nav {
 
             &.row-1 {
                 align-items: flex-end;
-                margin-bottom: 40px;
+                margin-bottom: $gutter;
             }
 
             &.row-2 {
                 img {
-                    max-width: calc(50% - 20px);
-                    margin-right: 40px;
+                    max-width: calc(50% - (#{$gutter} / 2));
+                    margin-right: $gutter;
 
                     &:last-of-type {
                         margin-right: 0;
@@ -582,7 +585,7 @@ nav {
             color: $white;
             background: $darkest-blue;
             font-size: $fs-h5;
-            padding: 40px;
+            padding: $gutter;
             margin: 0 0 5% -20%;
 
             @extend %green-shadow;
@@ -598,6 +601,14 @@ nav {
             .row {
                 &.row-1 {
                     flex-flow: row wrap;
+                    margin-bottom: $gutter-sm;
+                }
+
+                &.row-2 {
+                    img {
+                        max-width: calc(50% - (#{$gutter-sm} / 2));
+                        margin-right: $gutter-sm;
+                    }
                 }
             }
 
@@ -612,23 +623,41 @@ nav {
 
             .text {
                 z-index: 1;
+
                 font-size: $fs-body;
-                margin: 0;
                 padding: $cont-spc-sm;
+                margin: 0;
                 margin-bottom: -30%;
+                max-width: 500px;
             }
         }
 
-        @media (max-width: $phone-lg) {
+        @media (max-width: $tablet-md) {
             .text {
-                margin-left: -30px;
+                margin-left: -$cont-spc-md;
                 margin-bottom: -20%;
             }
 
             img {
                 &.img-1 {
                     margin-left: 0;
-                    margin-right: -30px;
+                    margin-right: -$cont-spc-md;
+                    max-width: none;
+                    width: 100%;
+                }
+            }
+        }
+
+        @media (max-width: $phone-lg) {
+            .text {
+                margin-left: -$cont-spc-sm;
+                margin-bottom: -20%;
+            }
+
+            img {
+                &.img-1 {
+                    margin-left: 0;
+                    margin-right: -$cont-spc-sm;
                     max-width: none;
                     width: 100%;
                 }
