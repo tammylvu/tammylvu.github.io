@@ -762,17 +762,17 @@ nav {
     flex-flow: row; }
     .container.about .row.row-1 {
       align-items: flex-end;
-      margin-bottom: 100px; }
+      margin-bottom: 40px; }
+    .container.about .row.row-2 img {
+      max-width: calc(50% - 20px);
+      margin-right: 40px; }
+      .container.about .row.row-2 img:last-of-type {
+        margin-right: 0; }
   .container.about img {
     align-self: flex-start;
     flex-basis: 600px;
     max-width: 75%;
     height: auto; }
-    .container.about img.img-2 {
-      max-width: 75%;
-      align-self: flex-end;
-      margin-top: 20%;
-      margin: 15% -15% 0 0; }
   .container.about .text {
     max-width: 600px;
     color: #fff;
