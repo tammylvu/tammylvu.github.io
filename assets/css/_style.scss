@@ -297,6 +297,7 @@ nav {
         $pad: 10px;
 
         display: inline-block;
+        align-self: flex-start;
         @include user-select(none);
         cursor: default;
 
