@@ -29,3 +29,14 @@
 		height: $scroll-arrow-h;
 	}
 }
+
+@keyframes transform-reset {
+	0% {
+
+	}
+
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}

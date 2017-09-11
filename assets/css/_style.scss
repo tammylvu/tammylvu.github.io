@@ -457,6 +457,9 @@ nav {
             @include user-select(none);
             cursor: pointer;
 
+            opacity: 0;
+            animation: transform-reset 1s ease-in-out forwards 6s;
+
             &:hover {
                 .scroll-arrow-inner {
                     opacity: 0.5;
@@ -544,14 +547,30 @@ nav {
                 color: $white;
                 margin-bottom: 20px;
 
+                span {
+                    display: block;
+                    animation: transform-reset 1s ease-in-out forwards 1.5s;
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
 
                 .emphasis {
-                    display: block;
                     font-weight: $bold;
                     font-size: $fs-h1;
                     line-height: 1.25;
                     margin-bottom: 0.15em;
                 }
+
+                .text {
+                    transform: translateY(20%);
+                    animation: transform-reset 1s ease-in-out forwards 3.5s;
+                }
+            }
+
+            .social-container {
+                transform: translateY(100%);
+                opacity: 0;
+                animation: transform-reset 1s ease-in-out forwards 4.5s;
             }
 
             .col-container {
