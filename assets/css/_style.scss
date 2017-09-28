@@ -647,15 +647,29 @@ nav {
             max-width: 75%;
             height: auto;
             @extend %green-shadow;
+        }
 
-            &.img-1 {
-            }
+        .img-1 {
+            // transform: rotate(15deg) translateY(100%);
+            transform: translateY(-25%);
+            opacity: 0;
+            animation: transform-reset 0.8s ease-in-out forwards 0s;
+        }
 
-            &.img-2 {
-            }
+        .img-2 {
+            // transform: rotate(15deg) translateY(100%);
+            transform: scale(0);
+            transform-origin: bottom left;
+            opacity: 0;
+            animation: transform-reset 0.8s ease-in-out forwards 0.8s;
+        }
 
-            &.img-3 {
-            }
+        .img-3 {
+            // transform: rotate(-15deg) translateY(100%);
+            transform: scale(0);
+            transform-origin: bottom right;
+            opacity: 0;
+            animation: transform-reset 0.8s ease-in-out forwards 0.4s;
         }
 
         .text {
@@ -668,6 +682,10 @@ nav {
             margin: 0 0 5% -18%;
 
             @extend %green-shadow;
+
+            transform: translateX(100%);
+            opacity: 0;
+            animation: transform-reset 0.8s ease-in-out forwards 1.2s;
         }
 
         @media (max-width: $monitor-md) {
