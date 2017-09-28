@@ -22,6 +22,14 @@ $(document).ready(function () {
 		$("nav, .overlay").removeClass("open");
 	});
 
+	$(".scroll-arrow").click(function() {
+		$("html, body").animate({
+			scrollTop: $("#about").position().top
+		}, 500);
+
+		console.log("clicked");
+	});
+
 	$(".dropdown-item").click(function() {
 		$(".dropdown-item").removeClass("current");
 		$(this).addClass("current");
