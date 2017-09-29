@@ -458,7 +458,7 @@ nav {
             cursor: pointer;
 
             opacity: 0;
-            animation: transform-reset 1s ease-in-out forwards 6s;
+            animation: transform-reset 1s ease-in-out forwards 4.5s;
 
             &:hover {
                 .scroll-arrow-inner {
@@ -549,7 +549,7 @@ nav {
 
                 span {
                     display: block;
-                    animation: transform-reset 1s ease-in-out forwards 1.5s;
+                    animation: transform-reset 1s ease-in-out forwards 1s;
                     transform: translateY(-100%);
                     opacity: 0;
                 }
@@ -563,14 +563,14 @@ nav {
 
                 .text {
                     transform: translateY(20%);
-                    animation: transform-reset 1s ease-in-out forwards 3.5s;
+                    animation: transform-reset 1s ease-in-out forwards 2.5s;
                 }
             }
 
             .social-container {
                 transform: translateY(100%);
                 opacity: 0;
-                animation: transform-reset 1s ease-in-out forwards 4.5s;
+                animation: transform-reset 1s ease-in-out forwards 3.5s;
             }
 
             .col-container {
