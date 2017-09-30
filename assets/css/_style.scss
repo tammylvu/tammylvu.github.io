@@ -392,6 +392,26 @@ nav {
 
         height: 100vh;
 
+        &.animated {
+            .desc {
+                span {
+                    animation: transform-reset 1s ease-in-out forwards 1s;
+                }
+
+                .text {
+                    animation: transform-reset 1s ease-in-out forwards 2.5s;
+                }
+            }
+
+            .social-container {
+                animation: transform-reset 1s ease-in-out forwards 3.5s;
+            }
+
+            .scroll-arrow {
+                animation: transform-reset 1s ease-in-out forwards 4.5s;
+            }
+        }
+
         .welcome-left {
             position: absolute;
             z-index: 1;
@@ -457,8 +477,8 @@ nav {
             @include user-select(none);
             cursor: pointer;
 
+            // Animation Start State
             opacity: 0;
-            animation: transform-reset 1s ease-in-out forwards 4.5s;
 
             &:hover {
                 .scroll-arrow-inner {
@@ -549,7 +569,8 @@ nav {
 
                 span {
                     display: block;
-                    animation: transform-reset 1s ease-in-out forwards 1s;
+
+                    // Animation Start State
                     transform: translateY(-100%);
                     opacity: 0;
                 }
@@ -562,15 +583,15 @@ nav {
                 }
 
                 .text {
+                    // Animation Start State
                     transform: translateY(20%);
-                    animation: transform-reset 1s ease-in-out forwards 2.5s;
                 }
             }
 
             .social-container {
+                // Animation Start State
                 transform: translateY(100%);
                 opacity: 0;
-                animation: transform-reset 1s ease-in-out forwards 3.5s;
             }
 
             .col-container {
@@ -614,6 +635,24 @@ nav {
         $gutter-sm: 20px;
         $gutter-xsm: 10px;
 
+        &.animated {
+            .img-1 {
+                animation: transform-reset 0.8s ease-in-out forwards 0s;
+            }
+
+            .img-2 {
+                animation: transform-reset 0.8s ease-in-out forwards 0.8s;
+            }
+
+            .img-3 {
+                animation: transform-reset 0.8s ease-in-out forwards 0.4s;
+            }
+
+            .text {
+                animation: transform-reset 0.8s ease-in-out forwards 1.2s;
+            }
+        }
+
         .content {
             display: flex;
             flex-direction: column;
@@ -650,26 +689,20 @@ nav {
         }
 
         .img-1 {
-            // transform: rotate(15deg) translateY(100%);
             transform: translateY(-25%);
             opacity: 0;
-            animation: transform-reset 0.8s ease-in-out forwards 0s;
         }
 
         .img-2 {
-            // transform: rotate(15deg) translateY(100%);
             transform: scale(0);
             transform-origin: bottom left;
             opacity: 0;
-            animation: transform-reset 0.8s ease-in-out forwards 0.8s;
         }
 
         .img-3 {
-            // transform: rotate(-15deg) translateY(100%);
             transform: scale(0);
             transform-origin: bottom right;
             opacity: 0;
-            animation: transform-reset 0.8s ease-in-out forwards 0.4s;
         }
 
         .text {
@@ -685,7 +718,6 @@ nav {
 
             transform: translateX(100%);
             opacity: 0;
-            animation: transform-reset 0.8s ease-in-out forwards 1.2s;
         }
 
         @media (max-width: $monitor-md) {
@@ -783,14 +815,25 @@ nav {
     }
 
     &.projects {
+        &.animated {
+            .projects-container {
+                .a-project {
+                    @for $i from 1 through 6 {
+                        &:nth-of-type(#{$i}) {
+                            animation: transform-reset 0.5s $ease-bounce forwards ($i * 0.25s);
+                        }
+                    }
+                }
+            }
+        }
 
         .section-title {
-            // margin-left: 40px;
         }
+
         .projects-container {
             display: flex;
             flex-flow: row wrap;
-            @extend %gradient-1;
+            // @extend %gradient-1;
 
             .a-project {
                 @extend %a-tag-reset;
@@ -812,8 +855,11 @@ nav {
                     }
                 }
 
+                opacity: 0;
+                transform: scale(0.5);
+
                 &:hover {
-                    background: none;
+                    background: $color-2;
                 }
 
                 .project-name {
@@ -878,6 +924,26 @@ nav {
         display: flex;
         flex-flow: row wrap;
 
+        &.animated {
+            .subsection {
+                &.experience {
+                    animation: transform-reset 0.5s $ease-bounce forwards 0s;
+                }
+
+                &.volunteering {
+                    animation: transform-reset 0.5s $ease-bounce forwards 0.25s;
+                }
+
+                &.education {
+                    animation: transform-reset 0.5s $ease-bounce forwards 0.5s;
+                }
+
+                &.skills {
+                    animation: transform-reset 0.5s $ease-bounce forwards 0.75s;
+                }
+            }
+        }
+
         .content {
 
         }
@@ -922,6 +988,10 @@ nav {
             padding: $spc;
             margin-bottom: $spc;
             @extend %green-shadow;
+
+            // Animation Start State
+            opacity: 0;
+            transform: scale(0.5);
 
             @media (max-width: $monitor-sm) {
                 margin-bottom: $spc-sm;
@@ -977,7 +1047,7 @@ nav {
             }
         }
 
-        .experience {
+        .experience, .volunteering {
 
             .an-experience {
                 margin-bottom: 1em;
@@ -994,10 +1064,6 @@ nav {
                     font-style: italic;
                 }
             }
-        }
-
-        .volunteering {
-
         }
 
         .education {
