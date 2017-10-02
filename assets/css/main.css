@@ -444,6 +444,12 @@ html, body {
 body {
   transition: all 0.75s ease-in-out;
   background: #000; }
+  body.about {
+    background: #eee; }
+  body.projects {
+    background: #222; }
+  body.resume {
+    background: #eee; }
 
 a {
   position: relative;

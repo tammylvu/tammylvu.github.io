@@ -25,15 +25,17 @@ body {
     }
 
     &.about {
-        // background: $white;
+        background: $lighter-gray;
         // background: $black;
     }
 
     &.projects {
-        // background: $dark-gray;
+        // background: $lighter-gray;
+        background: $dark-gray;
     }
 
     &.resume {
+        background: $lighter-gray;
         // background: $darkest-blue;
     }
 
