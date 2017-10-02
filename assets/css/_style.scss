@@ -270,7 +270,7 @@ nav {
 .container {
     font-size: $fs-body;
     line-height: 1.5;
-    padding: $cont-spc-lg;
+    padding: $cont-spc-xlg $cont-spc-lg;
 
     &.full-bleed {
         padding: $cont-spc-lg 0;
