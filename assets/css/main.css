@@ -401,7 +401,7 @@ template {
   padding: 0;
   color: inherit; }
 
-.container .section-title, .container.welcome .welcome-right::before, .container.projects .projects-container {
+.container .section-title, .container.welcome .welcome-right::before {
   background: linear-gradient(135deg, #3cc4a4 20%, #3091f2 100%); }
 
 @keyframes blink {
@@ -418,6 +418,10 @@ template {
 @keyframes grow {
   100% {
     height: 80px; } }
+@keyframes transform-reset {
+  100% {
+    transform: none;
+    opacity: 1; } }
 *, *::before, *::after {
   box-sizing: border-box;
   transition: all 0.3s ease-in-out; }
@@ -438,15 +442,14 @@ html, body {
   overflow-x: hidden; }
 
 body {
-  transition: all 0.75s ease-in-out; }
-  body.welcome {
-    background: #000; }
+  transition: all 0.75s ease-in-out;
+  background: #000; }
   body.about {
-    background: #000; }
+    background: #eee; }
   body.projects {
-    background: #252e35; }
-  body.resume {
     background: #222; }
+  body.resume {
+    background: #eee; }
 
 a {
   position: relative;
@@ -582,13 +585,13 @@ nav {
         opacity: 0.5; }
       nav .dropdown-container .dropdown-item:active::after {
         flex-grow: 1; }
-      nav .dropdown-container .dropdown-item.current {
-        transform: translateX(10px); }
+      nav .dropdown-container .dropdown-item.current::after {
+        flex-grow: 1; }
 
 .container {
   font-size: 1.8rem;
   line-height: 1.5;
-  padding: 100px; }
+  padding: 150px 100px; }
   .container.full-bleed {
     padding: 100px 0;
     max-width: none; }
@@ -604,6 +607,7 @@ nav {
     width: 100%; }
   .container .section-title {
     display: inline-block;
+    align-self: flex-start;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -669,6 +673,14 @@ nav {
     justify-content: center;
     align-items: center;
     height: 100vh; }
+    .container.welcome.animated .desc span {
+      animation: transform-reset 1s ease-in-out forwards 1s; }
+    .container.welcome.animated .desc .text {
+      animation: transform-reset 1s ease-in-out forwards 2.5s; }
+    .container.welcome.animated .social-container {
+      animation: transform-reset 1s ease-in-out forwards 3.5s; }
+    .container.welcome.animated .scroll-arrow {
+      animation: transform-reset 1s ease-in-out forwards 4.5s; }
     .container.welcome .welcome-left {
       position: absolute;
       z-index: 1;
@@ -706,22 +718,43 @@ nav {
     .container.welcome .scroll-arrow {
       position: absolute;
       z-index: 5;
+      display: flex;
+      justify-content: center;
       top: calc(100% - 80px - 40px);
-      width: 2px;
-      height: 0;
-      background: #fff;
-      animation: grow 1s ease-in-out 0s alternate infinite; }
-      .container.welcome .scroll-arrow::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: -5px;
-        width: 12px;
-        height: 12px;
-        background: transparent;
-        border-bottom: 2px solid #fff;
-        border-right: 2px solid #fff;
-        transform: rotate(45deg); }
+      width: 100px;
+      height: 80px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: pointer;
+      opacity: 0; }
+      .container.welcome .scroll-arrow:hover .scroll-arrow-inner {
+        opacity: 0.5; }
+      .container.welcome .scroll-arrow:active .scroll-arrow-inner {
+        opacity: 0.25; }
+      .container.welcome .scroll-arrow .scroll-arrow-inner {
+        position: relative;
+        width: 2px;
+        height: 0;
+        background: #fff;
+        animation: grow 1s ease-in-out 0s alternate infinite; }
+        .container.welcome .scroll-arrow .scroll-arrow-inner::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: -5px;
+          width: 12px;
+          height: 12px;
+          background: transparent;
+          border-bottom: 2px solid #fff;
+          border-right: 2px solid #fff;
+          transform: rotate(45deg); }
+      @media (max-width: 1024px) {
+        .container.welcome .scroll-arrow:hover .scroll-arrow-inner {
+          opacity: 1; }
+        .container.welcome .scroll-arrow:active .scroll-arrow-inner {
+          opacity: 0.5; } }
     .container.welcome .content {
       position: relative;
       z-index: 4; }
@@ -745,15 +778,43 @@ nav {
         font-size: 3rem;
         color: #fff;
         margin-bottom: 20px; }
-        .container.welcome .content .desc .emphasis {
+        .container.welcome .content .desc span {
           display: block;
+          transform: translateY(-100%);
+          opacity: 0; }
+        .container.welcome .content .desc .emphasis {
           font-weight: 700;
-          font-size: 5.4rem; }
+          font-size: 5.4rem;
+          line-height: 1.25;
+          margin-bottom: 0.15em; }
+        .container.welcome .content .desc .text {
+          transform: translateY(20%); }
+      .container.welcome .content .social-container {
+        transform: translateY(100%);
+        opacity: 0; }
       .container.welcome .content .col-container .col.grow {
         flex-grow: 1; }
       @media (max-width: 768px) {
         .container.welcome .content .desc {
           font-size: 2.4rem; } }
+      @media (max-width: 480px) {
+        .container.welcome .content .desc {
+          font-size: 2.4rem; }
+          .container.welcome .content .desc .emphasis {
+            font-size: 4.8rem; } }
+      @media (max-width: 360px) {
+        .container.welcome .content .desc {
+          font-size: 1.8rem; }
+          .container.welcome .content .desc .emphasis {
+            font-size: 3.6rem; } }
+  .container.about.animated .img-1 {
+    animation: transform-reset 0.8s ease-in-out forwards 0s; }
+  .container.about.animated .img-2 {
+    animation: transform-reset 0.8s ease-in-out forwards 0.8s; }
+  .container.about.animated .img-3 {
+    animation: transform-reset 0.8s ease-in-out forwards 0.4s; }
+  .container.about.animated .text {
+    animation: transform-reset 0.8s ease-in-out forwards 1.2s; }
   .container.about .content {
     display: flex;
     flex-direction: column; }
@@ -762,30 +823,47 @@ nav {
     flex-flow: row; }
     .container.about .row.row-1 {
       align-items: flex-end;
-      margin-bottom: 100px; }
+      margin-bottom: 40px; }
+    .container.about .row.row-2 img {
+      max-width: calc(50% - (40px / 2));
+      margin-right: 40px; }
+      .container.about .row.row-2 img:last-of-type {
+        margin-right: 0; }
   .container.about img {
     align-self: flex-start;
     flex-basis: 600px;
     max-width: 75%;
     height: auto; }
-    .container.about img.img-2 {
-      max-width: 75%;
-      align-self: flex-end;
-      margin-top: 20%;
-      margin: 15% -15% 0 0; }
+  .container.about .img-1 {
+    transform: translateY(-25%);
+    opacity: 0; }
+  .container.about .img-2 {
+    transform: scale(0);
+    transform-origin: bottom left;
+    opacity: 0; }
+  .container.about .img-3 {
+    transform: scale(0);
+    transform-origin: bottom right;
+    opacity: 0; }
   .container.about .text {
     max-width: 600px;
     color: #fff;
     background: #252e35;
     font-size: 2.4rem;
     padding: 40px;
-    margin: 0 0 5% -20%; }
+    margin: 0 0 5% -18%;
+    transform: translateX(100%);
+    opacity: 0; }
   @media (max-width: 1280px) {
     .container.about .text {
       font-size: 2rem; } }
   @media (max-width: 1152px) {
     .container.about .row.row-1 {
-      flex-flow: row wrap; }
+      flex-flow: row wrap;
+      margin-bottom: 20px; }
+    .container.about .row.row-2 img {
+      max-width: calc(50% - (20px / 2));
+      margin-right: 20px; }
     .container.about img {
       max-width: 100%; }
       .container.about img.img-1 {
@@ -794,11 +872,27 @@ nav {
     .container.about .text {
       z-index: 1;
       font-size: 1.8rem;
-      margin: 0;
       padding: 30px;
-      margin-bottom: -30%; } }
-  @media (max-width: 480px) {
+      margin: 0;
+      margin-bottom: -30%;
+      max-width: 500px; } }
+  @media (max-width: 768px) {
     .container.about .text {
+      margin-left: -50px;
+      margin-bottom: -20%; }
+    .container.about img.img-1 {
+      margin-left: 0;
+      margin-right: -50px;
+      max-width: none;
+      width: 100%; } }
+  @media (max-width: 480px) {
+    .container.about .row.row-1 {
+      margin-bottom: 10px; }
+    .container.about .row.row-2 img {
+      max-width: calc(50% - (10px / 2));
+      margin-right: 10px; }
+    .container.about .text {
+      font-size: 1.8rem;
       margin-left: -30px;
       margin-bottom: -20%; }
     .container.about img.img-1 {
@@ -806,6 +900,21 @@ nav {
       margin-right: -30px;
       max-width: none;
       width: 100%; } }
+  @media (max-width: 360px) {
+    .container.about .text {
+      font-size: 1.4rem; } }
+  .container.projects.animated .projects-container .a-project:nth-of-type(1) {
+    animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 0.25s; }
+  .container.projects.animated .projects-container .a-project:nth-of-type(2) {
+    animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 0.5s; }
+  .container.projects.animated .projects-container .a-project:nth-of-type(3) {
+    animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 0.75s; }
+  .container.projects.animated .projects-container .a-project:nth-of-type(4) {
+    animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 1s; }
+  .container.projects.animated .projects-container .a-project:nth-of-type(5) {
+    animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 1.25s; }
+  .container.projects.animated .projects-container .a-project:nth-of-type(6) {
+    animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 1.5s; }
   .container.projects .projects-container {
     display: flex;
     flex-flow: row wrap; }
@@ -817,7 +926,9 @@ nav {
       padding: 50px;
       background: #3cc4a4;
       color: #fff;
-      cursor: pointer; }
+      cursor: pointer;
+      opacity: 0;
+      transform: scale(0.5); }
       .container.projects .projects-container .a-project:nth-of-type(2) {
         background: #3abf9f; }
       .container.projects .projects-container .a-project:nth-of-type(3) {
@@ -831,7 +942,7 @@ nav {
       .container.projects .projects-container .a-project:nth-of-type(7) {
         background: #31a187; }
       .container.projects .projects-container .a-project:hover {
-        background: none; }
+        background: #3091f2; }
       .container.projects .projects-container .a-project .project-name {
         font-size: 3.6rem;
         font-weight: 700; }
@@ -866,6 +977,14 @@ nav {
   .container.resume {
     display: flex;
     flex-flow: row wrap; }
+    .container.resume.animated .subsection.experience {
+      animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 0s; }
+    .container.resume.animated .subsection.volunteering {
+      animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 0.25s; }
+    .container.resume.animated .subsection.education {
+      animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 0.5s; }
+    .container.resume.animated .subsection.skills {
+      animation: transform-reset 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards 0.75s; }
     .container.resume .section-title {
       color: #fff; }
     @media (max-width: 1152px) {
@@ -890,7 +1009,9 @@ nav {
     .container.resume .subsection {
       background: #fff;
       padding: 40px;
-      margin-bottom: 40px; }
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: scale(0.5); }
       @media (max-width: 1152px) {
         .container.resume .subsection {
           margin-bottom: 20px; } }
@@ -923,11 +1044,11 @@ nav {
     @media (max-width: 480px) {
       .container.resume ul {
         padding-left: 20px; } }
-    .container.resume .experience .an-experience {
+    .container.resume .experience .an-experience, .container.resume .volunteering .an-experience {
       margin-bottom: 1em; }
-      .container.resume .experience .an-experience:last-of-type {
+      .container.resume .experience .an-experience:last-of-type, .container.resume .volunteering .an-experience:last-of-type {
         margin-bottom: 0; }
-      .container.resume .experience .an-experience .experience-position {
+      .container.resume .experience .an-experience .experience-position, .container.resume .volunteering .an-experience .experience-position {
         font-style: italic; }
     .container.resume .education .when {
       margin-bottom: 1em; }

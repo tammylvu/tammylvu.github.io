@@ -24,3 +24,5 @@
 %gradient-1 {
 	background: linear-gradient(135deg, $color-1 20%, $color-2 100%);
 }
+
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
