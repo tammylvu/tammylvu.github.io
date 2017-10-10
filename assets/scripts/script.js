@@ -13,6 +13,12 @@ let resumeT;
 let resumeH;
 
 
+let firstFired = false;
+let aboutFired = false;
+let projectsFired = false;
+let resumeFired = false;
+
+
 $(document).ready(function () {
 	$("nav .logo-container, nav .current-section-container").click(function () {
 		$("nav, .overlay").addClass("open");
