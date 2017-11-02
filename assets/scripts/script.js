@@ -12,7 +12,6 @@ let projectsH;
 let resumeT;
 let resumeH;
 
-
 let firstFired = false;
 let aboutFired = false;
 let projectsFired = false;
@@ -85,10 +84,6 @@ $(window).scroll(function() {
 	resumeT = $("#resume").position().top;
 	resumeH = resumeT + $("#resume").outerHeight() - buffer;
 
-	// let contactT = $("#contact").position().top;
-	// let contactH = resumeT + $("#contact").outerHeight() - buffer;
-
-
 	function reset () {
 		$("body, nav").removeClass();
 		$(".container").removeClass("active");
@@ -121,13 +116,6 @@ $(window).scroll(function() {
 		$("#resume").addClass("active");
 		$("body, nav").addClass("resume");
 	}
-
-	// else if (windowT >= contactT && windowT < contactH) {
-	// 	reset();
-	//
-	// 	$("#contact").addClass("active");
-	// 	$("body, nav").addClass("contact");
-	// }
 
 	else {
 		reset();
