@@ -99,21 +99,21 @@ $(window).scroll(function() {
 	else if (windowT >= aboutT && windowT < aboutH) {
 		reset();
 
-		$("#about").addClass("active");
+		$("#about").addClass("active, animated");
 		$("body, nav").addClass("about");
 	}
 
 	else if (windowT >= projectsT && windowT < projectsH) {
 		reset();
 
-		$("#projects").addClass("active");
+		$("#projects").addClass("active, animated");
 		$("body, nav").addClass("projects");
 	}
 
 	else if (windowT >= resumeT && windowT < resumeH) {
 		reset();
 
-		$("#resume").addClass("active");
+		$("#resume").addClass("active, animated");
 		$("body, nav").addClass("resume");
 	}
 
