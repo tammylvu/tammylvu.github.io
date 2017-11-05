@@ -101,6 +101,16 @@ $(window).scroll(function() {
 
 		$("#about").addClass("active");
 		$("body, nav").addClass("about");
+
+		if (aboutFired == false) {
+			$("#about").addClass("animated");
+
+			aboutFired = true;
+		}
+
+		// projectsFired = false;
+		// resumeFired = false;
+		// $("#projects, #resume").removeClass("animated");
 	}
 
 	else if (windowT >= projectsT && windowT < projectsH) {
@@ -108,13 +118,33 @@ $(window).scroll(function() {
 
 		$("#projects").addClass("active");
 		$("body, nav").addClass("projects");
+
+		if (projectsFired == false) {
+			$("#projects").addClass("animated");
+
+			projectsFired = true;
+		}
+
+		// aboutFired = false;
+		// resumeFired = false;
+		// $("#about, #resume").removeClass("animated");
 	}
 
 	else if (windowT >= resumeT && windowT < resumeH) {
 		reset();
 
-		$("#resume").addClass("active");
+		$("#resume").addClass("active, animated");
 		$("body, nav").addClass("resume");
+
+		if (resumeFired == false) {
+			$("#about").addClass("animated");
+
+			resumeFired = true;
+		}
+
+		// aboutFired = false;
+		// projectsFired = false;
+		// $("#about, #projects").removeClass("animated");
 	}
 
 	else {
